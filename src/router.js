@@ -1,24 +1,52 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Homepage from '@/Homepage.vue';
-import Home from '@/Home.vue';
-import Documentation from '@/Documentation.vue';
-import Examples from '@/Examples.vue';
-import Configurator from '@/Configurator.vue';
-import Support from '@/Support.vue';
-import Contacts from '@/Contacts.vue';
-import NotFound from '@/NotFound.vue';
-
 Vue.use(VueRouter);
 
-/*
- * Uncomment this section and use "load()" if you want
- * to lazy load routes.
-function load (component) {
-  // '@' is aliased to src/components
-  return () => import(`@/${component}.vue`)
+/**
+ * Lazy load routes
+ */
+function load(component) {
+    // '@' is aliased to src/components
+    return () => import(`@/${component}.vue`);
 }
+
+function loadPage(page, pageFolder = 'pages') {
+    return () => import(`@/../${pageFolder}/${page}.vue`);
+}
+
+/*
+// Returns all vue files in directory 'page'
+const pages = require.context('./components/pages', true, /^\.\/.*\.vue$/)
+                     .keys()
+                     .filter(page => page.split('/').length >= 2)
+                     .map(page => page.slice(2).slice(0, -4));
+
+/!**
+ * Page loading function
+ * @param page
+ * @returns {{path: string, component}}
+ *!/
+function loadPage(page) {
+    return {
+        path: `/${page}`,
+        component: load(`pages/${page}`),
+    };
+}
+
+// Add first route with layout
+const routes = [
+    {
+        path: '/',
+        component: load('Layout'),
+        children: [],
+    },
+];
+
+// Add all other pages
+pages.forEach(page => {
+    routes[0].children.push(loadPage(page));
+});
 */
 
 export default new VueRouter({
@@ -35,25 +63,32 @@ export default new VueRouter({
      */
 
     routes: [
-        { path: '/',             component: Homepage },
-        { path: '/home',         component: Home },
-        { path: '/guide',        component: Documentation },
-        { path: '/examples',     component: Examples },
-        { path: '/configurator', component: Configurator },
-        { path: '/support',      component: Support },
-        { path: '/contacts',     component: Contacts },
-        { path: '*',             component: NotFound }, // Not found (error 404)
+        { path: '/', component: loadPage('Index') },
+        { path: '/',  component: load('Layout'),
+            children: [
+                { path: 'guide', component: loadPage('Documentation') },
+                { path: 'examples', component: loadPage('Examples') },
+                { path: 'configurator', component: loadPage('Configurator') },
+                { path: 'support', component: loadPage('Support') },
+                { path: 'contacts', component: loadPage('Contacts') },
+            ],
+        },
+        { path: '*', component: loadPage('NotFound') },
+        // { path: '*', redirect: '/404' },
     ],
-    // routes: [
-    //     { path: '/', component: load('Homepage'),
-    //         children: [
-    //             { path: 'guide', component: load('Documentation') },
-    //             { path: 'examples', component: load('Examples') },
-    //             { path: 'configurator', component: load('Configurator') },
-    //             { path: 'support', component: load('Support') },
-    //             { path: 'contacts', component: load('Contacts') },
-    //         ],
-    //     },
-    //     { path: '*', component: load('NotFound') },
-    // ],
+
+    mode: 'history',
+
+    scrollBehavior(to, from, savedPosition) {
+        if (to.hash) {
+            return {
+                selector: to.hash,
+                // , offset: { x: 0, y: 10 }
+            };
+        } else if (savedPosition) {
+            return savedPosition;
+        } else {
+            return { x: 0, y: 0 };
+        }
+    },
 });

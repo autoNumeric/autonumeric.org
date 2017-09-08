@@ -1,5 +1,30 @@
 {
-  "presets": [["es2015", {"modules": false}], "stage-2"],
-  "plugins": ["transform-runtime"],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "loose": true,
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "safari >= 7"
+          ]
+        }
+      }
+    ],
+    [
+      "es2015",
+      {
+        "modules": false,
+        "targets": "es5"
+      }
+    ],
+    "stage-2"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-object-assign"
+  ],
   "comments": false
 }

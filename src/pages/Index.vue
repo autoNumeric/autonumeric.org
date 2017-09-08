@@ -1,5 +1,41 @@
 <template>
 	<div class="landingPage">
+		<q-layout
+				ref="layout"
+				:view="layoutStore.view"
+				:left-breakpoint="layoutStore.leftBreakpoint"
+				:right-breakpoint="layoutStore.rightBreakpoint"
+				:reveal="layoutStore.reveal"
+		>
+			<!-- Left Side Panel -->
+			<q-scroll-area slot="left" style="width: 100%; height: 100%">
+				<q-list-header>Navigation</q-list-header>
+				<q-side-link item to="/">
+					<q-item-side icon="home" />
+					<q-item-main label="Home" sublabel="AutoNumeric homepage" />
+					<q-item-side right icon="grade" />
+				</q-side-link>
+				<q-side-link item to="/guide">
+					<q-item-side icon="collections_bookmark" />
+					<q-item-main label="Documentation" sublabel="View the guide" />
+				</q-side-link>
+				<q-side-link item to="/examples">
+					<q-item-side icon="euro_symbol" />
+					<q-item-main label="Examples" sublabel="View thy code source" />
+				</q-side-link>
+				<q-side-link item to="/configurator">
+					<q-item-side icon="developer_board" />
+					<q-item-main label="Configurator" sublabel="Generate your custom options" />
+				</q-side-link>
+				<q-side-link item to="/contacts">
+					<q-item-side icon="question_answer" />
+					<q-item-main label="Contacts" sublabel="Contact us" />
+				</q-side-link>
+				<q-side-link item to="/support">
+					<q-item-side icon="thumb_up" />
+					<q-item-main label="Support" sublabel="Donate to support development" />
+				</q-side-link>
+			</q-scroll-area>
 		<a href="https://github.com/autoNumeric/autoNumeric/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
 		<q-btn flat @click="toggleLeft" class="burger">
 			<q-icon name="menu" />
@@ -10,9 +46,10 @@
 					<li><router-link to="guide">Documentation</router-link></li>
 					<li><router-link to="examples">Examples</router-link></li>
 					<li><router-link to="configurator">Configuration generator</router-link></li>
+					<li><router-link to="contacts">Contact</router-link></li>
 					<li><router-link to="support">Donate</router-link></li>
 				</ul>
-				<div>
+				<div class="heroMain">
 					<router-link to="/">
 						<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
 					</router-link>
@@ -21,14 +58,19 @@
 				</div>
 				<div>
 					<div class="heroActions">
-						<q-btn icon="help" big @click="$router.push('/guide')">Get started</q-btn>
-						<q-btn icon="list" outline big @click="$router.push('/configurator')">
-							Generate your formatting options
-							<q-tooltip
-									:delay="1500"
-									:offset="[0, 15]"
-							>Use the configuration generator to ease the creation of your custom format</q-tooltip>
-						</q-btn>
+						<router-link to="guide">
+							<!--@click="$router.push('/guide')"-->
+							<q-btn icon="help" big>Get started</q-btn>
+						</router-link>
+						<router-link to="configurator">
+							<q-btn icon="list" outline big>
+								Generate your formatting options
+								<q-tooltip
+										:delay="1500"
+										:offset="[0, 15]"
+								>Use the configuration generator to ease the creation of your custom format</q-tooltip>
+							</q-btn>
+						</router-link>
 					</div>
 					<p class="support">Help AutoNumeric by <router-link to="support">supporting</router-link> it</p>
 				</div>
@@ -56,9 +98,11 @@
 					</div>
 				</div>
 			</div>
-			<q-btn class="nextScreen" flat href="#whatisit">
-				<q-icon name="keyboard_arrow_down" color="blue"/>
-			</q-btn>
+			<router-link to="#whatisit" class="nextScreen">
+				<q-btn flat>
+					<q-icon name="keyboard_arrow_down" color="blue"/>
+				</q-btn>
+			</router-link>
 		</div>
 		<div id="whatisit">
 			<div class="description">
@@ -140,15 +184,18 @@
 				<div class="title">Contribute</div>
 				<div class="subTitle">Help build AutoNumeric</div>
 				<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
-				<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>
+				<!--<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>-->
+				<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#fork-destination-box')">Fork on Github</q-btn>
 				<div class="title">Donate</div>
 				<div class="subTitle">Support AutoNumeric development</div>
 				<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
-				<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>
+				<!--<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>-->
+				<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
 				<div class="title">Feedback</div>
 				<div class="subTitle">Your ideas are precious</div>
 				<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
-				<a href="https://github.com/autoNumeric/autoNumeric/issues/new" target="_blank">Open an issue</a>
+				<!--<a href="https://github.com/autoNumeric/autoNumeric/issues/new" target="_blank">Open an issue</a>-->
+				<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
 			</div>
 			<ul class="nav">
 				<li><router-link to="guide">Documentation</router-link></li>
@@ -158,8 +205,12 @@
 				<li><router-link to="support">Donate</router-link></li>
 			</ul>
 			<p class="copyright">Copyright 2017 © <a href="mailto:alexandre.bonneau@linuxfr.eu">Alexandre Bonneau</a></p>
-			<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
+			<router-link to="/">
+				<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
+			</router-link>
 		</div>
+
+		</q-layout>
 	</div>
 </template>
 
@@ -172,13 +223,17 @@
         QCardTitle,
         QCardSeparator,
         QTooltip,
-        scroll, //FIXME à tester
-        dom, //FIXME à tester
+        QLayout,
+        QListHeader,
+        QSideLink,
+        QItemSide,
+        QItemMain,
+        QScrollArea,
+        openURL,
     } from 'quasar-framework';
-    import AutoNumeric from '../../node_modules/autonumeric/src/main';
+//    import AutoNumeric from '../../node_modules/autonumeric/src/main'; // Use that to get the IDE Autocompletion
+    import AutoNumeric from '../../node_modules/autonumeric/dist/autoNumeric.min'; // Use that for building the website, since Uglify does not correctly support ES6 yet (cf. https://github.com/mishoo/UglifyJS2/issues/659 and https://github.com/joeeames/WebpackFundamentalsCourse/issues/3)
     import hljs from '../../node_modules/highlight.js/lib/highlight';
-
-    const { getScrollPosition, setScrollPosition } = scroll; //FIXME à tester
 
     export default {
         name: 'homepage',
@@ -191,12 +246,28 @@
             QCardTitle,
             QCardSeparator,
             QTooltip,
+            QLayout,
+            QListHeader,
+            QSideLink,
+            QItemSide,
+            QItemMain,
+            QScrollArea,
         },
 
         data() {
             return {
-                aNElement: null,
-	            rawValue : null,
+                layoutStore: {
+                    view           : 'lhr Lpr lff',
+                    reveal         : true,
+                    leftScroll     : true,
+                    rightScroll    : false,
+                    leftBreakpoint : 3000,
+                    rightBreakpoint: 9999,
+                    hideTabs       : true,
+                },
+
+                aNElement   : null,
+                rawValue    : null,
                 /**
                  * AutoNumeric options array, to cycle through
                  */
@@ -326,8 +397,10 @@
         },
 
         methods: {
+            openURL,
+
             toggleLeft() {
-                this.$emit('toggleLeftSidebar');
+                this.$refs.layout.toggleLeft();
             },
 
             nextOption() {
@@ -399,6 +472,10 @@
     };
 </script>
 
+<style lang="scss" rel="stylesheet/scss" scoped>
+	//
+</style>
+
 <style lang="scss" rel="stylesheet/scss">
 	$primary   : #0094FF;
 	$secondary : #1d6a91;
@@ -425,6 +502,21 @@
 		font-family : 'Roboto', sans-serif;
 		font-weight : $fontWeightLight;
 	}
+
+	a:focus { // This rule is missing from the default quasar.mat.css file
+		color: #027be3;
+		text-decoration: underline;
+	}
+
+	.logo {
+		width  : 66.34px;
+		height : 64.7px;
+	}
+
+	/*main {
+		// This is needed to prevent the <q-layout><main> element to add an unneeded margin-top
+		margin-top : 0;
+	}*/
 
 	.burger {
 		position : absolute;
@@ -456,13 +548,11 @@
 		}
 	}
 
-	.logo {
-		width  : 66.34px;
-		height : 64.7px;
-	}
-
 	p {
 		margin : 0;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 300;
+		font-size: 0.9rem;
 	}
 
 	.landingPage {
@@ -476,6 +566,9 @@
 	}
 
 	.firstScreen {
+		display          : flex;
+		flex-direction   : column;
+
 		.hero {
 			height           : 60vh;
 			display          : flex;
@@ -491,6 +584,12 @@
 			}
 		}
 
+		.heroMain {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
 		.heroTitle {
 			font-size     : 3.2rem;
 			margin-top    : 2rem;
@@ -502,18 +601,25 @@
 		}
 
 		.heroActions {
-			//margin-top : 4rem;
-
-			button:first-child {
+			a:first-child button {
 				margin-right     : 2rem;
 				background-color : white;
-				//color: $colorText; //FIXME Uncomment this?
 				color            : #515151;
 
 				&:hover {
-					box-shadow : 0px 3px 11px 7px rgba(50, 50, 50, 0.40);
-					color : $primary;
-					background-color: white;
+					box-shadow       : 0px 3px 11px 7px rgba(50, 50, 50, 0.40);
+					color            : $primary;
+					background-color : white;
+				}
+			}
+
+			a:last-child button {
+				background-color : transparent;
+				color            : white;
+				border-color     : #BFCECE;
+
+				&:hover {
+					background-color : rgba(255, 255, 255, 0.05) !important;
 				}
 			}
 		}
@@ -523,6 +629,7 @@
 			font-size     : 1rem;
 			font-style    : italic;
 			margin-bottom : 1rem;
+			text-align    : center;
 
 			a {
 				color : $colorLinkHeroDonate;
@@ -573,7 +680,7 @@
 		}
 
 		.nextScreen {
-			/*height : 5vh;*/
+			align-self: center;
 		}
 	}
 
@@ -824,7 +931,8 @@
 				margin-bottom : $spacingTopBottom;
 			}
 
-			& > a {
+			& > a,
+			& > button {
 				display          : flex;
 				justify-content  : center;
 				align-items      : center;
@@ -865,7 +973,8 @@
 			a {
 				color : #73B0E6;
 
-				&:hover {
+				&:hover,
+				&:focus {
 					color : #66E6D3;
 				}
 			}

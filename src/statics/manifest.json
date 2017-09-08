@@ -1,6 +1,6 @@
 {
-  "name": "Quasar App",
-  "short_name": "Quasar-PWA",
+  "name": "AutoNumeric.js",
+  "short_name": "AutoNumeric",
   "icons": [
     {
       "src": "/statics/icons/icon-192x192.png",
@@ -15,6 +15,6 @@
   ],
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#027be3"
+  "background_color": "#FFFFFF",
+  "theme_color": "#0094FF"
 }
