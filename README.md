@@ -1,6 +1,6 @@
-# [autonumeric.org](https://autonumeric.org)
+# [autonumeric.org](http://autonumeric.org)
 
-The [autonumeric.org](https://autonumeric.org) website serves the official documentation for the [AutoNumeric.js](https://github.com/autoNumeric/autoNumeric/) library.
+The [autonumeric.org](http://autonumeric.org) website serves the official documentation for the [AutoNumeric.js](https://github.com/autoNumeric/autoNumeric/) library.
 
 It's built with the awesome [Vue.js](https://github.com/vuejs/vue) framework, as well as the great [Quasar framework](http://quasar-framework.org/).
 
