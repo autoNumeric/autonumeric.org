@@ -217,9 +217,9 @@ atob@~1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/atob/-/atob-1.1.3.tgz#95f13629b12c3a51a5d215abdce2aa9f32f80773"
 
-autonumeric@4.1.0-beta.7:
-  version "4.1.0-beta.7"
-  resolved "https://registry.yarnpkg.com/autonumeric/-/autonumeric-4.1.0-beta.7.tgz#22ce65432fcd519624d5a5007639e2235fd6427b"
+autonumeric@^4.1.0-beta.8, autonumeric@^4.1.0-beta.9:
+  version "4.1.0-beta.9"
+  resolved "https://registry.yarnpkg.com/autonumeric/-/autonumeric-4.1.0-beta.9.tgz#d8e0be596ee93e7e780281bb7e27e3a41d4ee198"
 
 autoprefixer@^6.3.1, autoprefixer@^6.4.0:
   version "6.7.7"
@@ -1939,8 +1939,8 @@ eslint-module-utils@^2.1.1:
     pkg-dir "^1.0.0"
 
 eslint-plugin-html@^3.1.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-3.2.1.tgz#4289d38245f3d95134d22c17b1894d78db92c572"
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-3.2.2.tgz#ef7093621d3a93de3206fd1f92f347ea9a1a4dfa"
   dependencies:
     htmlparser2 "^3.8.2"
     semver "^5.4.1"
@@ -4304,12 +4304,12 @@ qs@~6.4.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
 quasar-extras@0.x:
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/quasar-extras/-/quasar-extras-0.0.7.tgz#2fbb5a6fe719af8c06999d7034d48c50359c3cc0"
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/quasar-extras/-/quasar-extras-0.0.8.tgz#0defa7f982cbba185e3142b7eee9d3829928212a"
 
 quasar-framework@^0.14.1:
-  version "0.14.2"
-  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.14.2.tgz#0d92b5d5c9ca3d12aadfef8ede09179559a49d08"
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/quasar-framework/-/quasar-framework-0.14.3.tgz#8fef731f8e107c7ad7faf8f3dfecc24550d860b2"
 
 query-string@^4.1.0:
   version "4.3.4"
@@ -5366,6 +5366,12 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-autonumeric@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue-autonumeric/-/vue-autonumeric-1.0.2.tgz#2656ba2ca1065952986c8f7d811b128367336d8a"
+  dependencies:
+    autonumeric "^4.1.0-beta.8"
+
 vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
@@ -5392,9 +5398,16 @@ vue-router@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.7.0.tgz#16d424493aa51c3c8cce8b7c7210ea4c3a89aff1"
 
-vue-style-loader@^3.0.0, vue-style-loader@^3.0.1:
+vue-style-loader@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.0.1.tgz#c8b639bb2f24baf9d78274dc17e4f264c1deda08"
+  dependencies:
+    hash-sum "^1.0.2"
+    loader-utils "^1.0.2"
+
+vue-style-loader@^3.0.1:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-3.0.3.tgz#623658f81506aef9d121cdc113a4f5c9cac32df7"
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"

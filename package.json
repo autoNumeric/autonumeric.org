@@ -10,12 +10,13 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "autonumeric": "4.1.0-beta.7",
+    "autonumeric": "^4.1.0-beta.9",
     "babel-runtime": "^6.25.0",
     "highlight.js": "^9.12.0",
     "quasar-extras": "0.x",
     "quasar-framework": "^0.14.1",
     "vue": "~2.3.4",
+    "vue-autonumeric": "^1.0.2",
     "vue-router": "^2.7.0"
   },
   "devDependencies": {
