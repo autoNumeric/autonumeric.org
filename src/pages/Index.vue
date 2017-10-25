@@ -36,12 +36,169 @@
 					<q-item-main label="Support" sublabel="Donate to support development" />
 				</q-side-link>
 			</q-scroll-area>
-		<a href="https://github.com/autoNumeric/autoNumeric/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
-		<q-btn flat @click="toggleLeft" class="burger">
-			<q-icon name="menu" />
-		</q-btn>
-		<div class="firstScreen">
-			<div class="hero">
+
+			<!-- Github link -->
+			<a href="https://github.com/autoNumeric/autoNumeric/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+			<q-btn flat @click="toggleLeft" class="burger">
+				<q-icon name="menu" />
+			</q-btn>
+			<div class="firstScreen">
+				<div class="hero">
+					<ul class="nav">
+						<li><router-link to="guide">Documentation</router-link></li>
+						<li><router-link to="examples">Examples</router-link></li>
+						<li><router-link to="configurator">Configuration generator</router-link></li>
+						<li><router-link to="contacts">Contact</router-link></li>
+						<li><router-link to="support">Donate</router-link></li>
+					</ul>
+					<div class="heroMain">
+						<router-link to="/">
+							<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
+						</router-link>
+						<p class="heroTitle">AutoNumeric.js</p>
+						<p class="heroSubText">Automatically format your numbers and currencies</p>
+					</div>
+					<div>
+						<div class="heroActions">
+							<router-link to="guide">
+								<!--@click="$router.push('/guide')"-->
+								<q-btn icon="help" big>Get started</q-btn>
+							</router-link>
+							<router-link to="configurator">
+								<q-btn icon="list" outline big>
+									Generate your formatting options
+									<q-tooltip
+											:delay="1500"
+											:offset="[0, 15]"
+									>Use the configuration generator to ease the creation of your custom format</q-tooltip>
+								</q-btn>
+							</router-link>
+						</div>
+						<p class="support">Help AutoNumeric by <router-link to="support">supporting</router-link> it</p>
+					</div>
+				</div>
+				<div class="keyFeatures">
+					<div class="v-centering">
+						<div class="cards">
+							<p class="title">Easy to use</p>
+							<p class="details">
+								Natural syntax allows to easily setup and configure any element to be formatted.
+							</p>
+						</div>
+						<div class="cards">
+							<p class="title">Versatile</p>
+							<p class="details">
+								Very high configurability with more than 40 options available.
+								Define your format as you wish.
+							</p>
+						</div>
+						<div class="cards">
+							<p class="title">Powerful</p>
+							<p class="details">
+								ES6-ready, Function chaining, Shared options, Web Workers compatible. Actively maintained open-source code.
+							</p>
+						</div>
+					</div>
+				</div>
+				<router-link to="#whatisit" class="nextScreen">
+					<q-btn flat>
+						<q-icon name="keyboard_arrow_down" color="blue"/>
+					</q-btn>
+				</router-link>
+			</div>
+			<div id="whatisit">
+				<div class="description">
+					<div class="title">What is AutoNumeric?</div>
+					<div class="subTitle">AutoNumeric is a Javascript library that provides live <span class="italic">as-you-type</span> formatting for international numbers and currencies</div>
+				</div>
+				<div class="examples">
+					<div class="try">
+						<p class="title">Want to try before you <del>buy</del> get it for free?</p>
+						<p class="subTitle">The <code>&lt;input&gt;</code> element below is managed by AutoNumeric, would you care trying it?</p>
+						<input
+								type="text"
+								id="test"
+								value="1234567.89"
+								v-on:autoNumeric:rawValueModified="updateRawValue"
+						>
+						<p class="showRawValue">The <code>rawValue</code> is equal to <code>{{ rawValue }}</code>
+							<q-tooltip
+									:delay="250"
+									:offset="[0, 15]"
+									anchor="bottom middle"
+									self="top middle"
+							><div class="rawValueTooltip">You can <strong>always</strong> access the unformatted raw value using `<code>aNElement.getNumericString()</code>`</div></q-tooltip>
+						</p>
+						<div class="controls">
+							<q-btn @click="previousOption" small flat icon="keyboard_arrow_left" color="grey">Previous options</q-btn>
+							<q-btn @click="nextOption" small flat icon-right="keyboard_arrow_right" color="grey">Next options</q-btn>
+						</div>
+					</div>
+					<div class="source">
+						<p class="title">Source code for that input</p>
+						<pre id="sourceCode"><code class="javascript">new AutoNumeric('#input', {
+    currencySymbol : ' €',
+    decimalCharacter : ',',
+    digitGroupSeparator : '.',
+});</code>
+</pre>
+						<ul id="pagination">
+							<li v-for="item in optionsArray"></li>
+						</ul>
+						<!--<div class="note">Note: While the input value is formatted, you can always access the unformatted raw value using <code>aNElement.getNumericString()</code></div>-->
+					</div>
+				</div>
+				<p class="configurator">Use the <router-link to="configurator">configuration generator</router-link> to easily setup the format <strong>you</strong> want.</p>
+				<div class="more">Want to know more? Check out the <router-link to="examples">examples</router-link>.</div>
+			</div>
+			<div class="otherFeatures">
+				<div class="line">
+					<div class="point">
+						<div class="title">Speed & Efficiency</div>
+						<div class="details">AutoNumeric focuses on efficiency and speed making all your input interactions blazing fast.</div>
+					</div>
+					<div class="point">
+						<div class="title">Web Workers-enabled</div>
+						<div class="details">Got lots of formatting to do? Need even more speed? AutoNumeric supports being used in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a>.</div>
+					</div>
+					<div class="point">
+						<div class="title">Independant</div>
+						<div class="details">No <a href="https://github.com/autoNumeric/autoNumeric/#dependencies">dependencies</a> are needed to use AutoNumeric.<br>No Jquery, no Lodash, no nothing!</div>
+					</div>
+				</div>
+				<div class="line">
+					<div class="point">
+						<div class="title">Future proof</div>
+						<div class="details">Written in <a href="http://exploringjs.com/es6/index.html">ES6</a>, AutoNumeric uses the latest technologies and is prepared for the future.</div>
+					</div>
+					<div class="point">
+						<div class="title">Android support</div>
+						<div class="details">While the Android platform makes input management <a href="https://medium.com/outsystems-experts/javascript-events-unmasked-how-to-create-an-input-mask-for-mobile-fc0df165e8b2">hard to play with</a>, AutoNumeric supports it.</div>
+					</div>
+					<div class="point">
+						<div class="title">Super documentation</div>
+						<div class="details">Crystal clear <router-link to="guide">documentation</router-link> that provides great tips and <router-link to="examples">examples</router-link> with source code available.</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<div class="line">
+					<div class="title">Contribute</div>
+					<div class="subTitle">Help build AutoNumeric</div>
+					<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
+					<!--<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>-->
+					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#fork-destination-box')">Fork on Github</q-btn>
+					<div class="title">Donate</div>
+					<div class="subTitle">Support AutoNumeric development</div>
+					<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
+					<!--<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>-->
+					<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
+					<div class="title">Feedback</div>
+					<div class="subTitle">Your ideas are precious</div>
+					<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
+					<!--<a href="https://github.com/autoNumeric/autoNumeric/issues/new" target="_blank">Open an issue</a>-->
+					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
+				</div>
 				<ul class="nav">
 					<li><router-link to="guide">Documentation</router-link></li>
 					<li><router-link to="examples">Examples</router-link></li>
@@ -49,167 +206,11 @@
 					<li><router-link to="contacts">Contact</router-link></li>
 					<li><router-link to="support">Donate</router-link></li>
 				</ul>
-				<div class="heroMain">
-					<router-link to="/">
-						<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
-					</router-link>
-					<p class="heroTitle">AutoNumeric.js</p>
-					<p class="heroSubText">Automatically format your numbers and currencies</p>
-				</div>
-				<div>
-					<div class="heroActions">
-						<router-link to="guide">
-							<!--@click="$router.push('/guide')"-->
-							<q-btn icon="help" big>Get started</q-btn>
-						</router-link>
-						<router-link to="configurator">
-							<q-btn icon="list" outline big>
-								Generate your formatting options
-								<q-tooltip
-										:delay="1500"
-										:offset="[0, 15]"
-								>Use the configuration generator to ease the creation of your custom format</q-tooltip>
-							</q-btn>
-						</router-link>
-					</div>
-					<p class="support">Help AutoNumeric by <router-link to="support">supporting</router-link> it</p>
-				</div>
+				<p class="copyright">Copyright 2017 © <a href="mailto:alexandre.bonneau@linuxfr.eu">Alexandre Bonneau</a></p>
+				<router-link to="/">
+					<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
+				</router-link>
 			</div>
-			<div class="keyFeatures">
-				<div class="v-centering">
-					<div class="cards">
-						<p class="title">Easy to use</p>
-						<p class="details">
-							Natural syntax allows to easily setup and configure any element to be formatted.
-						</p>
-					</div>
-					<div class="cards">
-						<p class="title">Versatile</p>
-						<p class="details">
-							Very high configurability with more than 40 options available.
-							Define your format as you wish.
-						</p>
-					</div>
-					<div class="cards">
-						<p class="title">Powerful</p>
-						<p class="details">
-							ES6-ready, Function chaining, Shared options, Web Workers compatible. Actively maintained open-source code.
-						</p>
-					</div>
-				</div>
-			</div>
-			<router-link to="#whatisit" class="nextScreen">
-				<q-btn flat>
-					<q-icon name="keyboard_arrow_down" color="blue"/>
-				</q-btn>
-			</router-link>
-		</div>
-		<div id="whatisit">
-			<div class="description">
-				<div class="title">What is AutoNumeric?</div>
-				<div class="subTitle">AutoNumeric is a Javascript library that provides live <span class="italic">as-you-type</span> formatting for international numbers and currencies</div>
-			</div>
-			<div class="examples">
-				<div class="try">
-					<p class="title">Want to try before you <del>buy</del> get it for free?</p>
-					<p class="subTitle">The <code>&lt;input&gt;</code> element below is managed by AutoNumeric, would you care trying it?</p>
-					<input
-							type="text"
-							id="test"
-							value="1234567.89"
-							v-on:autoNumeric:rawValueModified="updateRawValue"
-					>
-					<p class="showRawValue">The <code>rawValue</code> is equal to <code>{{ rawValue }}</code>
-						<q-tooltip
-								:delay="250"
-								:offset="[0, 15]"
-								anchor="bottom middle"
-								self="top middle"
-						><div class="rawValueTooltip">You can <strong>always</strong> access the unformatted raw value using `<code>aNElement.getNumericString()</code>`</div></q-tooltip>
-					</p>
-					<div class="controls">
-						<q-btn @click="previousOption" small flat icon="keyboard_arrow_left" color="grey">Previous options</q-btn>
-						<q-btn @click="nextOption" small flat icon-right="keyboard_arrow_right" color="grey">Next options</q-btn>
-					</div>
-				</div>
-				<div class="source">
-					<p class="title">Source code for that input</p>
-					<pre id="sourceCode"><code class="javascript">new AutoNumeric('#input', {
-    currencySymbol : ' €',
-    decimalCharacter : ',',
-    digitGroupSeparator : '.',
-});</code>
-</pre>
-					<ul id="pagination">
-						<li v-for="item in optionsArray"></li>
-					</ul>
-					<!--<div class="note">Note: While the input value is formatted, you can always access the unformatted raw value using <code>aNElement.getNumericString()</code></div>-->
-				</div>
-			</div>
-			<p class="configurator">Use the <router-link to="configurator">configuration generator</router-link> to easily setup the format <strong>you</strong> want.</p>
-			<div class="more">Want to know more? Check out the <router-link to="examples">examples</router-link>.</div>
-		</div>
-		<div class="otherFeatures">
-			<div class="line">
-				<div class="point">
-					<div class="title">Speed & Efficiency</div>
-					<div class="details">AutoNumeric focuses on efficiency and speed making all your input interactions blazing fast.</div>
-				</div>
-				<div class="point">
-					<div class="title">Web Workers-enabled</div>
-					<div class="details">Got lots of formatting to do? Need even more speed? AutoNumeric supports being used in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a>.</div>
-				</div>
-				<div class="point">
-					<div class="title">Independant</div>
-					<div class="details">No <a href="https://github.com/autoNumeric/autoNumeric/#dependencies">dependencies</a> are needed to use AutoNumeric.<br>No Jquery, no Lodash, no nothing!</div>
-				</div>
-			</div>
-			<div class="line">
-				<div class="point">
-					<div class="title">Future proof</div>
-					<div class="details">Written in <a href="http://exploringjs.com/es6/index.html">ES6</a>, AutoNumeric uses the latest technologies and is prepared for the future.</div>
-				</div>
-				<div class="point">
-					<div class="title">Android support</div>
-					<div class="details">While the Android platform makes input management <a href="https://medium.com/outsystems-experts/javascript-events-unmasked-how-to-create-an-input-mask-for-mobile-fc0df165e8b2">hard to play with</a>, AutoNumeric supports it.</div>
-				</div>
-				<div class="point">
-					<div class="title">Super documentation</div>
-					<div class="details">Crystal clear <router-link to="guide">documentation</router-link> that provides great tips and <router-link to="examples">examples</router-link> with source code available.</div>
-				</div>
-			</div>
-		</div>
-		<div id="footer">
-			<div class="line">
-				<div class="title">Contribute</div>
-				<div class="subTitle">Help build AutoNumeric</div>
-				<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
-				<!--<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>-->
-				<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#fork-destination-box')">Fork on Github</q-btn>
-				<div class="title">Donate</div>
-				<div class="subTitle">Support AutoNumeric development</div>
-				<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
-				<!--<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>-->
-				<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
-				<div class="title">Feedback</div>
-				<div class="subTitle">Your ideas are precious</div>
-				<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
-				<!--<a href="https://github.com/autoNumeric/autoNumeric/issues/new" target="_blank">Open an issue</a>-->
-				<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
-			</div>
-			<ul class="nav">
-				<li><router-link to="guide">Documentation</router-link></li>
-				<li><router-link to="examples">Examples</router-link></li>
-				<li><router-link to="configurator">Configuration generator</router-link></li>
-				<li><router-link to="contacts">Contact</router-link></li>
-				<li><router-link to="support">Donate</router-link></li>
-			</ul>
-			<p class="copyright">Copyright 2017 © <a href="mailto:alexandre.bonneau@linuxfr.eu">Alexandre Bonneau</a></p>
-			<router-link to="/">
-				<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
-			</router-link>
-		</div>
-
 		</q-layout>
 	</div>
 </template>
