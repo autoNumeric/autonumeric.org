@@ -77,7 +77,6 @@ export default new VueRouter({
         // { path: '*', redirect: '/404' },
     ],
 
-    // mode: 'history', //FIXME Delete this
     mode: 'hash',
 
     scrollBehavior(to, from, savedPosition) {
