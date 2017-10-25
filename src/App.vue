@@ -23,4 +23,11 @@
 		margin 0
 		height 10px
 		background-color $primary
+
+	$fontWeightLight = 300
+	body {
+		color       : #333;
+		font-family : 'Roboto', sans-serif;
+		font-weight : $fontWeightLight;
+	}
 </style>
