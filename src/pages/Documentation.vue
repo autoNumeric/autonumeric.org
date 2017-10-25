@@ -1929,9 +1929,37 @@ The formatted values are immediately set back after the <code>submit</code> even
                         defaultCustomValue: { 42: 'The answer' }, // Defines the default value to use in the customChoice input by default
                     },
                     {
+                        name             : 'wheelOn',
+                        descriptionShort : 'Defines when the <code>wheel</code> event will increment or decrement the element value',
+                        description      : `This options accepts two choices:
+<ul>
+<li><code>'focus'</code>: will only modify the value if the element is focused, and</li>
+<li><code>'hover'</code>: will modify the value if the element is hovered (focused or not).</li>
+</ul>`,
+                        initialValue     : 1234, // The initial value shared with the same v-model
+                        optionList       : [
+                            {
+                                optionChoice: 'focus',
+                                value       : 'focus',
+                                description : `The AutoNumeric-managed element needs to be focused for the <code>wheel</code> event to change the value`,
+                                defaultValue: true,
+                            },
+                            {
+                                optionChoice: 'hover',
+                                value       : 'hover',
+                                description : `Using the <code>wheel</code> event while the mouse is hovering the element is sufficient (no focus needed)`,
+                            },
+                        ],
+                        additionalInfo   : `That option is linked to the <code>modifyValueOnWheel</code> one and will only be used if the latter is set to <code>true</code><br><br>When <code>wheelOn</code> is set to <code>'focus'</code>, you can use the <code>Shift</code> modifier key while using the mouse wheel in order to temporarily <strong>activate</strong> the increment/decrement feature even if the element is not focused.<br>When <code>wheelOn</code> is set to <code>'hover'</code>, you can use the <code>Shift</code> modifier key while using the mouse wheel in order to temporarily <strong>disable</strong> the increment/decrement feature even if the element is not hovered.`,
+                        additionalOptions: {
+                            modifyValueOnWheel: true,
+                        }, // Other options that needs to be set in conjunction
+                        isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
+                    },
+                    {
                         name             : 'wheelStep',
                         descriptionShort : 'Defines by how much the element value should be incremented/decremented on the <code>wheel</code> event',
-                        description      : `With this option can define the offset that can be either:
+                        description      : `This option defines the offset that can be either:
 <ul>
 <li>a <i>fixed</i> step value (a positive float or integer number like <code>1000</code>), or</li>
 <li>the <code>'progressive'</code> string.</li>
