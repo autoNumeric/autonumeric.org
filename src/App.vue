@@ -29,5 +29,9 @@
 		color       : #333;
 		font-family : 'Roboto', sans-serif;
 		font-weight : $fontWeightLight;
+		display 	: inline-block;
+	}
+	#q-app{
+		display inline-block
 	}
 </style>

@@ -78,21 +78,21 @@
 					</div>
 				</div>
 				<div class="keyFeatures">
-					<div class="v-centering">
-						<div class="cards">
+					<div class="v-centering row">
+						<div class="cards col-xs-12 col-sm-4">
 							<p class="title">Easy to use</p>
 							<p class="details">
 								Natural syntax allows to easily setup and configure any element to be formatted.
 							</p>
 						</div>
-						<div class="cards">
+						<div class="cards col-xs-12 col-sm-4">
 							<p class="title">Versatile</p>
 							<p class="details">
 								Very high configurability with more than 40 options available.
 								Define your format as you wish.
 							</p>
 						</div>
-						<div class="cards">
+						<div class="cards col-xs-12 col-sm-4">
 							<p class="title">Powerful</p>
 							<p class="details">
 								ES6-ready, Function chaining, Shared options, Web Workers compatible. Actively maintained open-source code.
@@ -111,8 +111,8 @@
 					<div class="title">What is AutoNumeric?</div>
 					<div class="subTitle">AutoNumeric is a Javascript library that provides live <span class="italic">as-you-type</span> formatting for international numbers and currencies</div>
 				</div>
-				<div class="examples">
-					<div class="try">
+				<div class="examples row">
+					<div class="try col-xs-12 col-md-6">
 						<p class="title">Want to try before you <del>buy</del> get it for free?</p>
 						<p class="subTitle">The <code>&lt;input&gt;</code> element below is managed by AutoNumeric, would you care trying it?</p>
 						<input
@@ -134,7 +134,7 @@
 							<q-btn @click="nextOption" small flat icon-right="keyboard_arrow_right" color="grey">Next options</q-btn>
 						</div>
 					</div>
-					<div class="source">
+					<div class="source col-xs-12 col-md-6">
 						<p class="title">Source code for that input</p>
 						<pre id="sourceCode"><code class="javascript">new AutoNumeric('#input', {
     currencySymbol : ' €',
@@ -152,52 +152,58 @@
 				<div class="more">Want to know more? Check out the <router-link to="examples">examples</router-link>.</div>
 			</div>
 			<div class="otherFeatures">
-				<div class="line">
-					<div class="point">
+				<div class="line row">
+					<div class="point col-xs-12 col-sm-4">
 						<div class="title">Speed & Efficiency</div>
 						<div class="details">AutoNumeric focuses on efficiency and speed making all your input interactions blazing fast.</div>
 					</div>
-					<div class="point">
+					<div class="point col-xs-12 col-sm-4">
 						<div class="title">Web Workers-enabled</div>
 						<div class="details">Got lots of formatting to do? Need even more speed? AutoNumeric supports being used in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a>.</div>
 					</div>
-					<div class="point">
+					<div class="point col-xs-12 col-sm-4">
 						<div class="title">Independant</div>
 						<div class="details">No <a href="https://github.com/autoNumeric/autoNumeric/#dependencies">dependencies</a> are needed to use AutoNumeric.<br>No Jquery, no Lodash, no nothing!</div>
 					</div>
 				</div>
-				<div class="line">
-					<div class="point">
+				<div class="line row">
+					<div class="point col-xs-12 col-sm-4">
 						<div class="title">Future proof</div>
 						<div class="details">Written in <a href="http://exploringjs.com/es6/index.html">ES6</a>, AutoNumeric uses the latest technologies and is prepared for the future.</div>
 					</div>
-					<div class="point">
+					<div class="point col-xs-12 col-sm-4">
 						<div class="title">Android support</div>
 						<div class="details">While the Android platform makes input management <a href="https://medium.com/outsystems-experts/javascript-events-unmasked-how-to-create-an-input-mask-for-mobile-fc0df165e8b2">hard to play with</a>, AutoNumeric supports it.</div>
 					</div>
-					<div class="point">
+					<div class="point col-xs-12 col-sm-4">
 						<div class="title">Super documentation</div>
 						<div class="details">Crystal clear <router-link to="guide">documentation</router-link> that provides great tips and <router-link to="examples">examples</router-link> with source code available.</div>
 					</div>
 				</div>
 			</div>
 			<div id="footer">
-				<div class="line">
-					<div class="title">Contribute</div>
-					<div class="subTitle">Help build AutoNumeric</div>
-					<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
-					<!--<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>-->
-					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#fork-destination-box')">Fork on Github</q-btn>
-					<div class="title">Donate</div>
-					<div class="subTitle">Support AutoNumeric development</div>
-					<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
-					<!--<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>-->
-					<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
-					<div class="title">Feedback</div>
-					<div class="subTitle">Your ideas are precious</div>
-					<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
-					<!--<a href="https://github.com/autoNumeric/autoNumeric/issues/new" target="_blank">Open an issue</a>-->
-					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
+				<div class="row">
+					<div class="line col-xs-12 col-sm-4">
+						<div class="title">Contribute</div>
+						<div class="subTitle">Help build AutoNumeric</div>
+						<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
+						<!--<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>-->
+						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#fork-destination-box')">Fork on Github</q-btn>
+					</div>
+					<div class="line col-xs-12 col-sm-4">
+						<div class="title">Donate</div>
+						<div class="subTitle">Support AutoNumeric development</div>
+						<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
+						<!--<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>-->
+						<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
+					</div>
+					<div class="line col-xs-12 col-sm-4">
+						<div class="title">Feedback</div>
+						<div class="subTitle">Your ideas are precious</div>
+						<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
+						<!--<a href="https://github.com/autoNumeric/autoNumeric/issues/new" target="_blank">Open an issue</a>-->
+						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
+					</div>
 				</div>
 				<ul class="nav">
 					<li><router-link to="guide">Documentation</router-link></li>
@@ -521,8 +527,8 @@
 
 	.burger {
 		position : absolute;
-		top      : 10px;
-		left     : 10px;
+		top      : 0.5%;
+		left     : 1%;
 		color    : white;
 	}
 
@@ -531,10 +537,17 @@
 	}
 
 	.nav {
-		display    : flex;
-		list-style : none;
-		font-size  : 0.9rem;
-		margin-top : 1.5rem;
+		list-style   : none;
+		font-size    : 0.9rem;
+		margin-top 	 : 1.5rem;
+		padding-left : 0;
+
+		li {
+			display: inline-block;
+			@media screen and (max-width:768px){
+				width: 100%;
+			}
+		}
 
 		li:not(:last-child) {
 			margin-right: 2rem;
@@ -571,7 +584,7 @@
 		flex-direction   : column;
 
 		.hero {
-			height           : 60vh;
+			height 			 : auto;
 			display          : flex;
 			flex-direction   : column;
 			align-items      : center;
@@ -586,7 +599,7 @@
 		}
 
 		.heroMain {
-			display: flex;
+			/*display: flex;*/
 			flex-direction: column;
 			align-items: center;
 		}
@@ -595,6 +608,10 @@
 			font-size     : 3.2rem;
 			margin-top    : 2rem;
 			margin-bottom : 4rem;
+
+			@media screen and (max-width:700px){
+				font-size : 2.5rem;			
+			}
 		}
 
 		.heroSubText {
@@ -603,9 +620,12 @@
 
 		.heroActions {
 			a:first-child button {
-				margin-right     : 2rem;
+				/*margin-right     : 2rem;*/
 				background-color : white;
 				color            : #515151;
+				/*@media screen and (max-width:1500px){*/
+					margin : 2rem auto;			
+				/*}*/
 
 				&:hover {
 					box-shadow       : 0px 3px 11px 7px rgba(50, 50, 50, 0.40);
@@ -642,7 +662,7 @@
 		}
 
 		.keyFeatures {
-			height          : 35vh;
+			margin-top: 2rem;
 			display         : flex;
 			align-items     : center;
 			justify-content : center;
@@ -663,6 +683,15 @@
 				&:nth-child(2) {
 					margin-left  : 3rem;
 					margin-right : 3rem;
+
+					@media screen and (max-width:700px){
+						margin-top: 1rem;
+						margin-bottom: 1rem;
+					}
+
+					@media screen and (min-width:700px) and (max-width:1500px){
+						margin: 0;
+					}
 				}
 			}
 
@@ -670,13 +699,17 @@
 				font-size     : 1.5rem;
 				font-weight   : $fontWeightMedium;
 				color         : $primary;
-				margin-bottom : 1.5rem;
+				margin-bottom : 1rem;
 			}
 
 			.details {
 				font-family : 'Open Sans', sans-serif;
 				font-weight : $fontWeightLight;
 				font-size   : 0.9rem;
+			}
+
+			@media screen and (max-width:700px){
+				height : auto;			
 			}
 		}
 
@@ -711,13 +744,15 @@
 		.examples {
 			display         : flex;
 			justify-content : space-around;
-			width           : 80%;
 			max-width       : 1100px;
 
-			& > div {
-				width : 40%;
-			}
+			@media screen and (max-width:1500px){
+				width: 95%;
+			}			
 
+			@media screen and (max-width:700px){
+				width: 100%;
+			}
 			.try {
 				display        : flex;
 				flex-direction : column;
@@ -874,8 +909,13 @@
 			$spacingTopBottom : 4rem;
 
 			&:first-child {
-				margin-top    : $spacingTopBottom;
-				margin-bottom : 4rem;
+				margin-top    : 3rem;
+				margin-bottom : $spacingTopBottom;
+
+				@media screen and (max-width:700px){
+					/*margin-top    : 0;*/
+					margin-bottom : 0;
+				}
 			}
 
 			&:last-child {
@@ -884,10 +924,14 @@
 		}
 
 		.point {
-			width          : 30%;
-			max-width      : 260px;
+			/*width          : 30%;*/
+			/*max-width      : 260px;*/
 			display        : flex;
 			flex-direction : column;
+
+			@media screen and (max-width:700px){
+				margin: 1rem 0;
+			}
 
 			.title { //FIXME DRY this with .keyFeatures (or not)
 				font-size     : 1.4rem;
@@ -905,54 +949,57 @@
 	}
 
 	#footer {
-		display          : flex;
-		flex-direction   : column;
 		align-items      : center;
 		color            : white;
 		background-image : linear-gradient($colorBgFooterPrimary, $colorBgFooterSecondary);
 
-		.line {
-			display               : grid;
-			grid-template-columns : repeat(3, 1fr);
-			grid-template-rows    : repeat(4, auto);
-			grid-auto-flow        : column;
-			grid-column-gap       : 2rem;
-			max-width             : 1100px;
-			align-items           : start;
-			justify-items         : center;
+		$spacingTopBottom     : 4rem;
 
-			$spacingTopBottom     : 4rem;
+		& > .row{
+			padding-top    : $spacingTopBottom;
+			margin-bottom : $spacingTopBottom;
 
-			&:first-child {
-				margin-top    : $spacingTopBottom;
-				margin-bottom : 4rem;
-			}
+			& > .line {
+				max-width             : 1100px;
 
-			&:last-child {
-				margin-bottom : $spacingTopBottom;
-			}
+				&:first-child {
+					/*margin-top    : $spacingTopBottom;*/
+					@media screen and (max-width:700px){
+						margin-bottom : 1rem;
+					}
+				}
 
-			& > a,
-			& > button {
-				display          : flex;
-				justify-content  : center;
-				align-items      : center;
-				width            : 70%;
-				margin-top       : 2rem;
-				color            : #B0DEFF;
-				background-color : #295375;
-				border           : 1px solid #1A374D;
-				transition       : all 0.3s ease;
-				font-variant     : all-small-caps;
-				border-radius    : 3px;
-				height           : 40px;
-				font-size        : 0.9rem;
+				&:last-of-type {
+					/*margin-bottom : $spacingTopBottom;*/
+					@media screen and (max-width:700px){
+						margin-top: 1rem;
+					}
+				}
 
-				&:hover {
-					border-color     : #568AB4;
-					background-color : #386589;
+				& > a,
+				& > button {
+					display          : flex;
+					justify-content  : center;
+					align-items      : center;
+					width            : 70%;
+					max-width		 : 250px;
+					margin           : 1rem auto 0 auto;
+					color            : #B0DEFF;
+					background-color : #295375;
+					border           : 1px solid #1A374D;
+					transition       : all 0.3s ease;
+					font-variant     : all-small-caps;
+					border-radius    : 3px;
+					height           : 40px;
+					font-size        : 0.9rem;
+
+					&:hover {
+						border-color     : #568AB4;
+						background-color : #386589;
+					}
 				}
 			}
+
 		}
 
 		.title {
@@ -1013,6 +1060,10 @@
 			color         : $colorBgFooterPrimary;
 			margin-top    : 3rem;
 			margin-bottom : 10rem;
+
+			@media screen and (max-width:700px){
+				margin: auto;
+			}
 		}
 	}
 
