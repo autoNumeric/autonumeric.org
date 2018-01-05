@@ -183,21 +183,17 @@
 			</div>
 			<div id="footer">
 				<div class="row">
-					<div class="line col-xs-12 col-sm-4">
+					<div class="line">
 						<div class="title">Contribute</div>
 						<div class="subTitle">Help build AutoNumeric</div>
 						<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
 						<!--<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>-->
 						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#fork-destination-box')">Fork on Github</q-btn>
-					</div>
-					<div class="line col-xs-12 col-sm-4">
 						<div class="title">Donate</div>
 						<div class="subTitle">Support AutoNumeric development</div>
 						<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
 						<!--<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>-->
 						<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
-					</div>
-					<div class="line col-xs-12 col-sm-4">
 						<div class="title">Feedback</div>
 						<div class="subTitle">Your ideas are precious</div>
 						<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
@@ -511,8 +507,8 @@
 	}
 
 	a:focus { // This rule is missing from the default quasar.mat.css file
-		color: #027be3;
-		text-decoration: underline;
+		color 			: #027be3;
+		text-decoration : underline;
 	}
 
 	.logo {
@@ -530,6 +526,10 @@
 		top      : 0.5%;
 		left     : 1%;
 		color    : white;
+
+		@media screen and (min-width:770px){
+			display: none !important;
+		}
 	}
 
 	.italic {
@@ -537,16 +537,18 @@
 	}
 
 	.nav {
-		list-style   : none;
-		font-size    : 0.9rem;
-		margin-top 	 : 1.5rem;
-		padding-left : 0;
+		list-style    : none;
+		font-size     : 0.9rem;
+		margin-top 	  : 1.5rem;
+		margin-bottom : 2.5rem;
+		padding-left  : 0;
+
+		@media screen and (max-width:768px){
+			display: none;
+		}
 
 		li {
 			display: inline-block;
-			@media screen and (max-width:768px){
-				width: 100%;
-			}
 		}
 
 		li:not(:last-child) {
@@ -574,8 +576,12 @@
 		flex-direction : column;
 		align-items    : center;
 
-		& > div {
-			width  : 100%;
+		& > div {			
+			width: 100%;
+
+			@media screen and (max-width:700px){
+				max-width: 440px;
+			}
 		}
 	}
 
@@ -584,7 +590,7 @@
 		flex-direction   : column;
 
 		.hero {
-			height 			 : auto;
+			height 			 : 60vh;
 			display          : flex;
 			flex-direction   : column;
 			align-items      : center;
@@ -592,6 +598,15 @@
 			color            : white;
 			background-image : linear-gradient($primary, $secondary);
 			font-weight      : $fontWeightLight;
+			
+			@media screen and (max-width: 1500px){
+				height: 70vh;
+			}
+
+			@media screen and (max-width: 700px){
+				height: auto;
+			}
+			
 
 			.logo {
 				color: white;
@@ -599,9 +614,12 @@
 		}
 
 		.heroMain {
-			/*display: flex;*/
-			flex-direction: column;
-			align-items: center;
+			flex-direction  : column;
+			align-items		: center;
+		
+			@media screen and (max-width:770px){
+				margin-top  : 5%;
+			}
 		}
 
 		.heroTitle {
@@ -616,16 +634,17 @@
 
 		.heroSubText {
 			font-size : 2rem;
+			
+			@media screen and (max-width:700px){
+				font-size : 1.5rem;
+			}
 		}
 
 		.heroActions {
 			a:first-child button {
-				/*margin-right     : 2rem;*/
 				background-color : white;
 				color            : #515151;
-				/*@media screen and (max-width:1500px){*/
-					margin : 2rem auto;			
-				/*}*/
+				margin 			 : 2rem;	
 
 				&:hover {
 					box-shadow       : 0px 3px 11px 7px rgba(50, 50, 50, 0.40);
@@ -646,7 +665,6 @@
 		}
 
 		.support {
-			margin-top    : 2rem;
 			font-size     : 1rem;
 			font-style    : italic;
 			margin-bottom : 1rem;
@@ -662,10 +680,14 @@
 		}
 
 		.keyFeatures {
-			margin-top: 2rem;
+			margin-top		: 2rem;
 			display         : flex;
 			align-items     : center;
 			justify-content : center;
+
+			@media screen and (min-width:700px){
+				height 		: 35vh;
+			}
 
 			.v-centering {
 				width           : 100%;
@@ -685,8 +707,8 @@
 					margin-right : 3rem;
 
 					@media screen and (max-width:700px){
-						margin-top: 1rem;
-						margin-bottom: 1rem;
+						margin-top 		: 1rem;
+						margin-bottom 	: 1rem;
 					}
 
 					@media screen and (min-width:700px) and (max-width:1500px){
@@ -709,12 +731,12 @@
 			}
 
 			@media screen and (max-width:700px){
-				height : auto;			
+				height : auto;
 			}
 		}
 
 		.nextScreen {
-			align-self: center;
+			align-self : center;
 		}
 	}
 
@@ -744,22 +766,25 @@
 		.examples {
 			display         : flex;
 			justify-content : space-around;
+			width 			: 100%;
 			max-width       : 1100px;
 
-			@media screen and (max-width:1500px){
-				width: 95%;
-			}			
-
-			@media screen and (max-width:700px){
-				width: 100%;
+			@media screen and (min-width:700px) and (max-width:1500px){
+				width : 95%;
 			}
+
+			& > div {
+ 				width 		: 40%;
+ 				max-width	: 440px;
+			}
+
 			.try {
 				display        : flex;
 				flex-direction : column;
 				align-items    : center;
 
 				p {
-					font-size : 0.9rem;
+					font-size  : 0.9rem;
 				}
 
 				del {
@@ -830,8 +855,8 @@
 				align-items    : stretch;
 
 				.title {
-					font-size   : 0.9rem;
-					font-weight : $fontWeightMedium;
+					font-size  : 0.9rem;
+					font-weight: $fontWeightMedium;
 				}
 
 				#pagination {
@@ -913,7 +938,6 @@
 				margin-bottom : $spacingTopBottom;
 
 				@media screen and (max-width:700px){
-					/*margin-top    : 0;*/
 					margin-bottom : 0;
 				}
 			}
@@ -924,10 +948,14 @@
 		}
 
 		.point {
-			/*width          : 30%;*/
-			/*max-width      : 260px;*/
 			display        : flex;
 			flex-direction : column;
+
+			@media screen and (min-width:800px){
+				width     : 30%;
+				max-width : 260px;
+				margin 	  : 0 15px;
+			}
 
 			@media screen and (max-width:700px){
 				margin: 1rem 0;
@@ -949,31 +977,40 @@
 	}
 
 	#footer {
-		align-items      : center;
-		color            : white;
-		background-image : linear-gradient($colorBgFooterPrimary, $colorBgFooterSecondary);
+		align-items       : center;
+		color             : white;
+		background-image  : linear-gradient($colorBgFooterPrimary, $colorBgFooterSecondary);
+		display 		  : flex;
+		flex-direction 	  : column;
 
-		$spacingTopBottom     : 4rem;
+		$spacingTopBottom : 4rem;
 
 		& > .row{
 			padding-top    : $spacingTopBottom;
-			margin-bottom : $spacingTopBottom;
+			margin-bottom  : $spacingTopBottom;
+			max-width : 1100px;
+
+			@media screen and (max-width:700px){
+				margin-bottom: 0;
+			}
+
 
 			& > .line {
-				max-width             : 1100px;
+				display 				: grid;
+			    grid-template-columns	: repeat(3,1fr);
+				-ms-grid-rows			: (auto)[4];
+				grid-template-rows		: repeat(4,auto);
+				grid-auto-flow			: column;
+				grid-column-gap			: 2rem;
+				max-width				: 1100px;
+				-webkit-box-align		: start;
+				-ms-flex-align			: start;
+				align-items				: start;
+				-ms-grid-column-align	: center;
+				justify-items			: center;
 
-				&:first-child {
-					/*margin-top    : $spacingTopBottom;*/
-					@media screen and (max-width:700px){
-						margin-bottom : 1rem;
-					}
-				}
-
-				&:last-of-type {
-					/*margin-bottom : $spacingTopBottom;*/
-					@media screen and (max-width:700px){
-						margin-top: 1rem;
-					}
+				@media screen and (max-width:700px){
+					display: block;
 				}
 
 				& > a,
@@ -992,6 +1029,10 @@
 					border-radius    : 3px;
 					height           : 40px;
 					font-size        : 0.9rem;
+
+					@media screen and (max-width:700px){
+						margin-bottom: 4rem;
+					}
 
 					&:hover {
 						border-color     : #568AB4;
@@ -1062,7 +1103,7 @@
 			margin-bottom : 10rem;
 
 			@media screen and (max-width:700px){
-				margin: auto;
+				margin: 1rem 0 5rem 0;
 			}
 		}
 	}

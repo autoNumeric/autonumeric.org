@@ -32,6 +32,6 @@
 		display 	: inline-block;
 	}
 	#q-app{
-		display inline-block
+		display : inline-block;
 	}
 </style>
