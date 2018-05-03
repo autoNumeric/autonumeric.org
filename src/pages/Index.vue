@@ -185,18 +185,15 @@
 				<div class="line">
 					<div class="title">Contribute</div>
 					<div class="subTitle">Help build AutoNumeric</div>
-					<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
-					<!--<a href="https://github.com/autoNumeric/autoNumeric/#fork-destination-box" target="_blank">Fork on Github</a>-->
-					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#fork-destination-box')">Fork on Github</q-btn>
+					<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it better.</div>
+					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#how-to-contribute')">Fork on Github</q-btn>
 					<div class="title">Donate</div>
 					<div class="subTitle">Support AutoNumeric development</div>
 					<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
-					<!--<a href="https://www.patreon.com/user?u=4810062" target="_blank" id="donate">Donate</a>-->
 					<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
 					<div class="title">Feedback</div>
 					<div class="subTitle">Your ideas are precious</div>
 					<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
-					<!--<a href="https://github.com/autoNumeric/autoNumeric/issues/new" target="_blank">Open an issue</a>-->
 					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
 				</div>
 				<ul class="nav">
@@ -206,7 +203,7 @@
 					<li><router-link to="contacts">Contact</router-link></li>
 					<li><router-link to="support">Donate</router-link></li>
 				</ul>
-				<p class="copyright">Copyright 2017 © <a href="mailto:alexandre.bonneau@linuxfr.eu">Alexandre Bonneau</a></p>
+				<p class="copyright">Copyright 2018 © <a href="mailto:alexandre.bonneau@linuxfr.eu">Alexandre Bonneau</a></p>
 				<router-link to="/">
 					<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
 				</router-link>
