@@ -113,8 +113,8 @@
 				</div>
 				<div class="examples row">
 					<div class="try col-xs-12 col-md-6">
-						<p class="title">Want to try before you <del>buy</del> get it for free?</p>
-						<p class="subTitle">The <code>&lt;input&gt;</code> element below is managed by AutoNumeric, would you care trying it?</p>
+						<p class="title">Enough of that, I want to try it now!</p>
+						<p class="subTitle">The <code>&lt;input&gt;</code> element below is managed by AutoNumeric.<br>Try changing its value and see how the underlying <code>rawValue</code> is modified:</p>
 						<input
 								type="text"
 								id="test"
