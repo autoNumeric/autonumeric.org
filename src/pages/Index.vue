@@ -38,7 +38,7 @@
 			</q-scroll-area>
 
 			<!-- Github link -->
-			<a href="https://github.com/autoNumeric/autoNumeric/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+			<a id="githubRibbon" href="https://github.com/autoNumeric/autoNumeric/"><img src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
 			<q-btn flat @click="toggleLeft" class="burger">
 				<q-icon name="menu" />
 			</q-btn>
@@ -78,21 +78,21 @@
 					</div>
 				</div>
 				<div class="keyFeatures">
-					<div class="v-centering">
-						<div class="cards">
+					<div class="v-centering row">
+						<div class="cards col-xs-12 col-sm-4">
 							<p class="title">Easy to use</p>
 							<p class="details">
 								Natural syntax allows to easily setup and configure any element to be formatted.
 							</p>
 						</div>
-						<div class="cards">
+						<div class="cards col-xs-12 col-sm-4">
 							<p class="title">Versatile</p>
 							<p class="details">
 								Very high configurability with more than 40 options available.
 								Define your format as you wish.
 							</p>
 						</div>
-						<div class="cards">
+						<div class="cards col-xs-12 col-sm-4">
 							<p class="title">Powerful</p>
 							<p class="details">
 								ES6-ready, Function chaining, Shared options, Web Workers compatible. Actively maintained open-source code.
@@ -111,8 +111,8 @@
 					<div class="title">What is AutoNumeric?</div>
 					<div class="subTitle">AutoNumeric is a Javascript library that provides live <span class="italic">as-you-type</span> formatting for international numbers and currencies</div>
 				</div>
-				<div class="examples">
-					<div class="try">
+				<div class="examples row">
+					<div class="try col-xs-12 col-md-6">
 						<p class="title">Want to try before you <del>buy</del> get it for free?</p>
 						<p class="subTitle">The <code>&lt;input&gt;</code> element below is managed by AutoNumeric, would you care trying it?</p>
 						<input
@@ -134,7 +134,7 @@
 							<q-btn @click="nextOption" small flat icon-right="keyboard_arrow_right" color="grey">Next options</q-btn>
 						</div>
 					</div>
-					<div class="source">
+					<div class="source col-xs-12 col-md-6">
 						<p class="title">Source code for that input</p>
 						<pre id="sourceCode"><code class="javascript">new AutoNumeric('#input', {
     currencySymbol : ' €',
@@ -152,7 +152,7 @@
 				<div class="more">Want to know more? Check out the <router-link to="examples">examples</router-link>.</div>
 			</div>
 			<div class="otherFeatures">
-				<div class="line">
+				<div class="line row">
 					<div class="point">
 						<div class="title">Speed & Efficiency</div>
 						<div class="details">AutoNumeric focuses on efficiency and speed making all your input interactions blazing fast.</div>
@@ -162,11 +162,11 @@
 						<div class="details">Got lots of formatting to do? Need even more speed? AutoNumeric supports being used in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a>.</div>
 					</div>
 					<div class="point">
-						<div class="title">Independant</div>
+						<div class="title">Independent</div>
 						<div class="details">No <a href="https://github.com/autoNumeric/autoNumeric/#dependencies">dependencies</a> are needed to use AutoNumeric.<br>No Jquery, no Lodash, no nothing!</div>
 					</div>
 				</div>
-				<div class="line">
+				<div class="line row">
 					<div class="point">
 						<div class="title">Future proof</div>
 						<div class="details">Written in <a href="http://exploringjs.com/es6/index.html">ES6</a>, AutoNumeric uses the latest technologies and is prepared for the future.</div>
@@ -182,19 +182,21 @@
 				</div>
 			</div>
 			<div id="footer">
-				<div class="line">
-					<div class="title">Contribute</div>
-					<div class="subTitle">Help build AutoNumeric</div>
-					<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it better.</div>
-					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#how-to-contribute')">Fork on Github</q-btn>
-					<div class="title">Donate</div>
-					<div class="subTitle">Support AutoNumeric development</div>
-					<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
-					<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
-					<div class="title">Feedback</div>
-					<div class="subTitle">Your ideas are precious</div>
-					<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
-					<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
+				<div class="row">
+					<div class="line">
+						<div class="title">Contribute</div>
+						<div class="subTitle">Help build AutoNumeric</div>
+						<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
+						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#how-to-contribute')">Fork on Github</q-btn>
+						<div class="title">Donate</div>
+						<div class="subTitle">Support AutoNumeric development</div>
+						<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
+						<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
+						<div class="title">Feedback</div>
+						<div class="subTitle">Your ideas are precious</div>
+						<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
+						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
+					</div>
 				</div>
 				<ul class="nav">
 					<li><router-link to="guide">Documentation</router-link></li>
@@ -493,6 +495,10 @@
 	$colorBgFooterPrimary   : #295375;
 	$colorBgFooterSecondary : #224460;
 
+	$mediaBreakpointColumnToRow : 950px;
+	$maxCardWidth               : 260px;
+	$marginBetweenCards         : 3rem;
+
 	@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:300,400,500');
 
 	body {
@@ -502,8 +508,8 @@
 	}
 
 	a:focus { // This rule is missing from the default quasar.mat.css file
-		color: #027be3;
-		text-decoration: underline;
+		color           : #027be3;
+		text-decoration : underline;
 	}
 
 	.logo {
@@ -518,39 +524,53 @@
 
 	.burger {
 		position : absolute;
-		top      : 10px;
-		left     : 10px;
+		top      : 0.1%;
+		left     : 0.5%;
 		color    : white;
+
+		@media screen and (min-width : 770px) {
+			display : none !important;
+		}
 	}
 
 	.italic {
 		font-style:italic;
 	}
 
+	$mediaBreakpointHero : 700px;
 	.nav {
-		display    : flex;
-		list-style : none;
-		font-size  : 0.9rem;
-		margin-top : 1.5rem;
+		list-style    : none;
+		font-size     : 0.9rem;
+		margin-top    : 1.5rem;
+		margin-bottom : 2.5rem;
+		padding-left  : 0;
+
+		@media screen and (max-width : $mediaBreakpointHero) {
+			display : none;
+		}
+
+		li {
+			display : inline-block;
+		}
 
 		li:not(:last-child) {
-			margin-right: 2rem;
+			margin-right : 2rem;
 		}
 
 		a {
-			color: $colorLinkHero;
+			color : $colorLinkHero;
 
 			&:hover {
-				color: $colorLinkHeroHovered;
+				color : $colorLinkHeroHovered;
 			}
 		}
 	}
 
 	p {
-		margin : 0;
-		font-family: 'Open Sans', sans-serif;
-		font-weight: 300;
-		font-size: 0.9rem;
+		margin      : 0;
+		font-family : 'Open Sans', sans-serif;
+		font-weight : 300;
+		font-size   : 0.9rem;
 	}
 
 	.landingPage {
@@ -559,16 +579,37 @@
 		align-items    : center;
 
 		& > div {
+			width : 100%;
+		}
+	}
+
+	#githubRibbon {
+		position : absolute;
+		top      : 0;
+		right    : 0;
+		border   : 0;
+
+		display         : flex;
+		justify-content : flex-end;
+
+		img {
 			width  : 100%;
+			height : 100%;
+
+			@media screen and (max-width : 770px) {
+				width  : 50%;
+				height : 50%;
+			}
 		}
 	}
 
 	.firstScreen {
-		display          : flex;
-		flex-direction   : column;
+		display        : flex;
+		flex-direction : column;
 
 		.hero {
-			height           : 60vh;
+			min-height       : 60vh;
+			flex-grow        : 1;
 			display          : flex;
 			flex-direction   : column;
 			align-items      : center;
@@ -578,31 +619,50 @@
 			font-weight      : $fontWeightLight;
 
 			.logo {
-				color: white;
+				color : white;
 			}
 		}
 
 		.heroMain {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
+			flex-direction : column;
+			align-items    : center;
+
+			@media screen and (max-width : 770px) {
+				margin-top : 8%;
+			}
 		}
 
 		.heroTitle {
 			font-size     : 3.2rem;
 			margin-top    : 2rem;
 			margin-bottom : 4rem;
+
+			@media screen and (max-width : $mediaBreakpointHero) {
+				font-size     : 2rem;
+				margin-bottom : 3rem;
+			}
 		}
 
 		.heroSubText {
-			font-size : 2rem;
+			font-size   : 2rem;
+			line-height : 2.4rem;
+
+			@media screen and (max-width : $mediaBreakpointHero) {
+				font-size     : 1.35rem;
+				line-height   : unset;
+				margin-bottom : 2rem;
+			}
 		}
 
 		.heroActions {
 			a:first-child button {
-				margin-right     : 2rem;
 				background-color : white;
 				color            : #515151;
+				margin           : 2rem;
+
+				@media screen and (max-width : $mediaBreakpointHero) {
+					margin : 1rem;
+				}
 
 				&:hover {
 					box-shadow       : 0px 3px 11px 7px rgba(50, 50, 50, 0.40);
@@ -616,50 +676,91 @@
 				color            : white;
 				border-color     : #BFCECE;
 
+				margin-left      : 1rem;
+				margin-right     : 1rem;
+
 				&:hover {
 					background-color : rgba(255, 255, 255, 0.05) !important;
+				}
+			}
+
+			button {
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					font-size     : 13px;
+					min-height    : 34px;
+					padding-left  : 0.5rem;
+					padding-right : 0.5rem;
 				}
 			}
 		}
 
 		.support {
-			margin-top    : 2rem;
 			font-size     : 1rem;
 			font-style    : italic;
 			margin-bottom : 1rem;
 			text-align    : center;
 
+			@media screen and (max-width : $mediaBreakpointHero) {
+				font-size  : 0.8rem;
+				margin-top : 1rem;
+			}
+
 			a {
 				color : $colorLinkHeroDonate;
 
 				&:hover {
-					color: $colorLinkHeroDonateHovered;
+					color : $colorLinkHeroDonateHovered;
 				}
 			}
 		}
 
 		.keyFeatures {
-			height          : 35vh;
+			$marginTopBottom : 2rem;
 			display         : flex;
 			align-items     : center;
 			justify-content : center;
+			margin-top      : $marginTopBottom;
+			height          : auto;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-bottom : $marginTopBottom;
+			}
+
+			@media screen and (min-width : $mediaBreakpointColumnToRow) {
+				height : 32vh;
+			}
 
 			.v-centering {
-				width           : 100%;
 				display         : flex;
+				flex-direction  : row;
 				align-items     : flex-start;
 				justify-content : center;
+				width           : 100%;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					flex-direction : column;
+					align-items    : center;
+				}
 			}
 
 			.cards {
 				display        : flex;
 				flex-direction : column;
-				width          : 20%;
-				max-width      : 260px;
+				width          : 100%;
+				max-width      : $maxCardWidth;
 
 				&:nth-child(2) {
-					margin-left  : 3rem;
-					margin-right : 3rem;
+					margin-left  : $marginBetweenCards;
+					margin-right : $marginBetweenCards;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						margin : 1rem 0;
+					}
+
+					@media screen and (min-width : $mediaBreakpointHero) and (max-width : $mediaBreakpointColumnToRow) {
+						margin-left  : 0;
+						margin-right : 0;
+					}
 				}
 			}
 
@@ -667,7 +768,7 @@
 				font-size     : 1.5rem;
 				font-weight   : $fontWeightMedium;
 				color         : $primary;
-				margin-bottom : 1.5rem;
+				margin-bottom : 1rem;
 			}
 
 			.details {
@@ -678,7 +779,11 @@
 		}
 
 		.nextScreen {
-			align-self: center;
+			align-self : center;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				display : none;
+			}
 		}
 	}
 
@@ -687,32 +792,49 @@
 		display          : flex;
 		flex-direction   : column;
 		align-items      : center;
-
 		$marginTopDownWhatIsIt : 4rem;
 
 		.description {
 			margin-top    : 3rem;
 			margin-bottom : $marginTopDownWhatIsIt;
 
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-top    : 2rem;
+				margin-bottom : 2rem;
+			}
+
 			.title {
 				font-size : 2rem;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					font-size : 1.5rem;
+				}
 			}
 
 			.subTitle {
 				margin-top : 0.5rem;
 				font-size  : 1.4rem;
 				max-width  : 700px;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					font-size : 1.05rem;
+				}
 			}
 		}
 
 		.examples {
 			display         : flex;
 			justify-content : space-around;
-			width           : 80%;
+			width           : 100%;
 			max-width       : 1100px;
 
+			@media screen and (min-width : $mediaBreakpointHero) and (max-width : 1500px) {
+				width : 95%;
+			}
+
 			& > div {
-				width : 40%;
+				width     : 40%;
+				max-width : 440px;
 			}
 
 			.try {
@@ -741,12 +863,21 @@
 				.title {
 					font-size   : 1.2rem;
 					font-weight : $fontWeightMedium;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						font-size : 1.05rem;
+						max-width : 270px;
+					}
 				}
 
 				.subTitle {
 					margin-top    : 0.5rem;
 					margin-bottom : 1rem;
 					max-width     : 270px;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						line-height: 1.1rem;
+					}
 				}
 
 				input {
@@ -759,6 +890,11 @@
 					text-align       : center;
 					font-weight      : $fontWeightRegular;
 					font-size        : 1.5rem;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						min-width : unset;
+						width     : 80%
+					}
 				}
 
 				.showRawValue {
@@ -776,6 +912,18 @@
 					display         : flex;
 					min-width       : 270px;
 					justify-content : space-between;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						button:first-child {
+							padding-left  : 0.2rem;
+							padding-right : 0.5rem;
+						}
+
+						button:last-child {
+							padding-left  : 0.5rem;
+							padding-right : 0.2rem;
+						}
+					}
 				}
 			}
 
@@ -794,6 +942,10 @@
 				.title {
 					font-size   : 0.9rem;
 					font-weight : $fontWeightMedium;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						margin-top : 1rem;
+					}
 				}
 
 				#pagination {
@@ -811,7 +963,7 @@
 						border           : 1px solid transparent;
 						background-color : #B2C4D1;
 						transition       : background-color 0.3s ease;
-						pointer-events : none;
+						pointer-events   : none;
 
 						&:not(:last-child) {
 							margin-right : 0.5rem;
@@ -847,6 +999,10 @@
 		.configurator {
 			margin-top : $marginTopDownWhatIsIt;
 
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-top : 2.5rem;
+			}
+
 			strong {
 				font-weight : $fontWeightMedium;
 			}
@@ -856,6 +1012,10 @@
 			margin-top    : 1rem;
 			margin-bottom : 3rem;
 			font-size     : 0.9rem;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-bottom : 2rem;
+			}
 		}
 	}
 
@@ -865,14 +1025,22 @@
 		align-items    : center;
 
 		.line {
-			max-width       : 1100px;
 			display         : flex;
-			justify-content : space-between;
+			flex-direction  : row;
+			justify-content : center;
 			$spacingTopBottom : 4rem;
 
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				flex-direction: column;
+			}
+
 			&:first-child {
-				margin-top    : $spacingTopBottom;
-				margin-bottom : 4rem;
+				margin-top    : 3rem;
+				margin-bottom : $spacingTopBottom;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					margin-bottom : 0;
+				}
 			}
 
 			&:last-child {
@@ -881,10 +1049,23 @@
 		}
 
 		.point {
-			width          : 30%;
-			max-width      : 260px;
 			display        : flex;
 			flex-direction : column;
+			max-width      : $maxCardWidth;
+
+			&:nth-child(2) {
+				margin-left  : $marginBetweenCards;
+				margin-right : $marginBetweenCards;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					margin-left  : 0;
+					margin-right : 0;
+				}
+			}
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-bottom : 1.5rem;
+			}
 
 			.title { //FIXME DRY this with .keyFeatures (or not)
 				font-size     : 1.4rem;
@@ -907,49 +1088,59 @@
 		align-items      : center;
 		color            : white;
 		background-image : linear-gradient($colorBgFooterPrimary, $colorBgFooterSecondary);
+		$spacingTopBottom : 4rem;
 
-		.line {
-			display               : grid;
-			grid-template-columns : repeat(3, 1fr);
-			grid-template-rows    : repeat(4, auto);
-			grid-auto-flow        : column;
-			grid-column-gap       : 2rem;
-			max-width             : 1100px;
-			align-items           : start;
-			justify-items         : center;
+		& > .row {
+			padding-top   : $spacingTopBottom;
+			margin-bottom : $spacingTopBottom;
+			max-width     : 1100px;
 
-			$spacingTopBottom     : 4rem;
-
-			&:first-child {
-				margin-top    : $spacingTopBottom;
-				margin-bottom : 4rem;
+			@media screen and (max-width : $mediaBreakpointHero) {
+				margin-bottom : 0;
 			}
 
-			&:last-child {
-				margin-bottom : $spacingTopBottom;
-			}
+			& > .line {
+				display               : grid;
+				grid-template-columns : repeat(3, 1fr);
+				grid-template-rows    : repeat(4, auto);
+				grid-auto-flow        : column;
+				grid-column-gap       : 2rem;
+				max-width             : 1100px;
+				align-items           : start;
+				justify-items         : center;
 
-			& > a,
-			& > button {
-				display          : flex;
-				justify-content  : center;
-				align-items      : center;
-				width            : 70%;
-				margin-top       : 2rem;
-				color            : #B0DEFF;
-				background-color : #295375;
-				border           : 1px solid #1A374D;
-				transition       : all 0.3s ease;
-				font-variant     : all-small-caps;
-				border-radius    : 3px;
-				height           : 40px;
-				font-size        : 0.9rem;
+				@media screen and (max-width : $mediaBreakpointHero) {
+					display : block;
+				}
 
-				&:hover {
-					border-color     : #568AB4;
-					background-color : #386589;
+				& > a,
+				& > button {
+					display          : flex;
+					justify-content  : center;
+					align-items      : center;
+					width            : 70%;
+					max-width        : 250px;
+					margin           : 1rem auto 0 auto;
+					color            : #B0DEFF;
+					background-color : #295375;
+					border           : 1px solid #1A374D;
+					transition       : all 0.3s ease;
+					font-variant     : all-small-caps;
+					border-radius    : 3px;
+					height           : 40px;
+					font-size        : 0.9rem;
+
+					@media screen and (max-width : $mediaBreakpointHero) {
+						margin-bottom : 4rem;
+					}
+
+					&:hover {
+						border-color     : #568AB4;
+						background-color : #386589;
+					}
 				}
 			}
+
 		}
 
 		.title {
@@ -967,6 +1158,12 @@
 			font-family : 'Open Sans', sans-serif;
 			font-weight : $fontWeightLight;
 			font-size   : 0.9rem;
+			max-width   : 320px;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-left  : 1rem;
+				margin-right : 1rem;
+			}
 
 			a {
 				color : #73B0E6;
@@ -1010,6 +1207,10 @@
 			color         : $colorBgFooterPrimary;
 			margin-top    : 3rem;
 			margin-bottom : 10rem;
+
+			@media screen and (max-width : $mediaBreakpointHero) {
+				margin : 1rem 0 5rem 0;
+			}
 		}
 	}
 
