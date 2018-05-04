@@ -31,7 +31,8 @@
 		font-weight : $fontWeightLight;
 		display 	: inline-block;
 	}
-	#q-app{
+
+	#q-app {
 		display : inline-block;
 	}
 </style>

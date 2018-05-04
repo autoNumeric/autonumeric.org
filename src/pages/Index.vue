@@ -38,7 +38,7 @@
 			</q-scroll-area>
 
 			<!-- Github link -->
-			<a href="https://github.com/autoNumeric/autoNumeric/"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+			<a id="githubRibbon" href="https://github.com/autoNumeric/autoNumeric/"><img src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
 			<q-btn flat @click="toggleLeft" class="burger">
 				<q-icon name="menu" />
 			</q-btn>
@@ -153,29 +153,29 @@
 			</div>
 			<div class="otherFeatures">
 				<div class="line row">
-					<div class="point col-xs-12 col-sm-4">
+					<div class="point">
 						<div class="title">Speed & Efficiency</div>
 						<div class="details">AutoNumeric focuses on efficiency and speed making all your input interactions blazing fast.</div>
 					</div>
-					<div class="point col-xs-12 col-sm-4">
+					<div class="point">
 						<div class="title">Web Workers-enabled</div>
 						<div class="details">Got lots of formatting to do? Need even more speed? AutoNumeric supports being used in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a>.</div>
 					</div>
-					<div class="point col-xs-12 col-sm-4">
-						<div class="title">Independant</div>
+					<div class="point">
+						<div class="title">Independent</div>
 						<div class="details">No <a href="https://github.com/autoNumeric/autoNumeric/#dependencies">dependencies</a> are needed to use AutoNumeric.<br>No Jquery, no Lodash, no nothing!</div>
 					</div>
 				</div>
 				<div class="line row">
-					<div class="point col-xs-12 col-sm-4">
+					<div class="point">
 						<div class="title">Future proof</div>
 						<div class="details">Written in <a href="http://exploringjs.com/es6/index.html">ES6</a>, AutoNumeric uses the latest technologies and is prepared for the future.</div>
 					</div>
-					<div class="point col-xs-12 col-sm-4">
+					<div class="point">
 						<div class="title">Android support</div>
 						<div class="details">While the Android platform makes input management <a href="https://medium.com/outsystems-experts/javascript-events-unmasked-how-to-create-an-input-mask-for-mobile-fc0df165e8b2">hard to play with</a>, AutoNumeric supports it.</div>
 					</div>
-					<div class="point col-xs-12 col-sm-4">
+					<div class="point">
 						<div class="title">Super documentation</div>
 						<div class="details">Crystal clear <router-link to="guide">documentation</router-link> that provides great tips and <router-link to="examples">examples</router-link> with source code available.</div>
 					</div>
@@ -498,6 +498,10 @@
 	$colorBgFooterPrimary   : #295375;
 	$colorBgFooterSecondary : #224460;
 
+	$mediaBreakpointColumnToRow : 950px;
+	$maxCardWidth               : 260px;
+	$marginBetweenCards         : 3rem;
+
 	@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Roboto:300,400,500');
 
 	body {
@@ -507,7 +511,7 @@
 	}
 
 	a:focus { // This rule is missing from the default quasar.mat.css file
-		color 			: #027be3;
+		color           : #027be3;
 		text-decoration : underline;
 	}
 
@@ -523,12 +527,12 @@
 
 	.burger {
 		position : absolute;
-		top      : 0.5%;
-		left     : 1%;
+		top      : 0.1%;
+		left     : 0.5%;
 		color    : white;
 
-		@media screen and (min-width:770px){
-			display: none !important;
+		@media screen and (min-width : 770px) {
+			display : none !important;
 		}
 	}
 
@@ -536,39 +540,40 @@
 		font-style:italic;
 	}
 
+	$mediaBreakpointHero : 700px;
 	.nav {
 		list-style    : none;
 		font-size     : 0.9rem;
-		margin-top 	  : 1.5rem;
+		margin-top    : 1.5rem;
 		margin-bottom : 2.5rem;
 		padding-left  : 0;
 
-		@media screen and (max-width:768px){
-			display: none;
+		@media screen and (max-width : $mediaBreakpointHero) {
+			display : none;
 		}
 
 		li {
-			display: inline-block;
+			display : inline-block;
 		}
 
 		li:not(:last-child) {
-			margin-right: 2rem;
+			margin-right : 2rem;
 		}
 
 		a {
-			color: $colorLinkHero;
+			color : $colorLinkHero;
 
 			&:hover {
-				color: $colorLinkHeroHovered;
+				color : $colorLinkHeroHovered;
 			}
 		}
 	}
 
 	p {
-		margin : 0;
-		font-family: 'Open Sans', sans-serif;
-		font-weight: 300;
-		font-size: 0.9rem;
+		margin      : 0;
+		font-family : 'Open Sans', sans-serif;
+		font-weight : 300;
+		font-size   : 0.9rem;
 	}
 
 	.landingPage {
@@ -576,21 +581,38 @@
 		flex-direction : column;
 		align-items    : center;
 
-		& > div {			
-			width: 100%;
+		& > div {
+			width : 100%;
+		}
+	}
 
-			@media screen and (max-width:700px){
-				max-width: 440px;
+	#githubRibbon {
+		position : absolute;
+		top      : 0;
+		right    : 0;
+		border   : 0;
+
+		display         : flex;
+		justify-content : flex-end;
+
+		img {
+			width  : 100%;
+			height : 100%;
+
+			@media screen and (max-width : 770px) {
+				width  : 50%;
+				height : 50%;
 			}
 		}
 	}
 
 	.firstScreen {
-		display          : flex;
-		flex-direction   : column;
+		display        : flex;
+		flex-direction : column;
 
 		.hero {
-			height 			 : 60vh;
+			min-height       : 60vh;
+			flex-grow        : 1;
 			display          : flex;
 			flex-direction   : column;
 			align-items      : center;
@@ -598,27 +620,18 @@
 			color            : white;
 			background-image : linear-gradient($primary, $secondary);
 			font-weight      : $fontWeightLight;
-			
-			@media screen and (max-width: 1500px){
-				height: 70vh;
-			}
-
-			@media screen and (max-width: 700px){
-				height: auto;
-			}
-			
 
 			.logo {
-				color: white;
+				color : white;
 			}
 		}
 
 		.heroMain {
-			flex-direction  : column;
-			align-items		: center;
-		
-			@media screen and (max-width:770px){
-				margin-top  : 5%;
+			flex-direction : column;
+			align-items    : center;
+
+			@media screen and (max-width : 770px) {
+				margin-top : 8%;
 			}
 		}
 
@@ -627,16 +640,20 @@
 			margin-top    : 2rem;
 			margin-bottom : 4rem;
 
-			@media screen and (max-width:700px){
-				font-size : 2.5rem;			
+			@media screen and (max-width : $mediaBreakpointHero) {
+				font-size     : 2rem;
+				margin-bottom : 3rem;
 			}
 		}
 
 		.heroSubText {
-			font-size : 2rem;
-			
-			@media screen and (max-width:700px){
-				font-size : 1.5rem;
+			font-size   : 2rem;
+			line-height : 2.4rem;
+
+			@media screen and (max-width : $mediaBreakpointHero) {
+				font-size     : 1.35rem;
+				line-height   : unset;
+				margin-bottom : 2rem;
 			}
 		}
 
@@ -644,7 +661,11 @@
 			a:first-child button {
 				background-color : white;
 				color            : #515151;
-				margin 			 : 2rem;	
+				margin           : 2rem;
+
+				@media screen and (max-width : $mediaBreakpointHero) {
+					margin : 1rem;
+				}
 
 				&:hover {
 					box-shadow       : 0px 3px 11px 7px rgba(50, 50, 50, 0.40);
@@ -658,8 +679,20 @@
 				color            : white;
 				border-color     : #BFCECE;
 
+				margin-left      : 1rem;
+				margin-right     : 1rem;
+
 				&:hover {
 					background-color : rgba(255, 255, 255, 0.05) !important;
+				}
+			}
+
+			button {
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					font-size     : 13px;
+					min-height    : 34px;
+					padding-left  : 0.5rem;
+					padding-right : 0.5rem;
 				}
 			}
 		}
@@ -670,49 +703,66 @@
 			margin-bottom : 1rem;
 			text-align    : center;
 
+			@media screen and (max-width : $mediaBreakpointHero) {
+				font-size  : 0.8rem;
+				margin-top : 1rem;
+			}
+
 			a {
 				color : $colorLinkHeroDonate;
 
 				&:hover {
-					color: $colorLinkHeroDonateHovered;
+					color : $colorLinkHeroDonateHovered;
 				}
 			}
 		}
 
 		.keyFeatures {
-			margin-top		: 2rem;
+			$marginTopBottom : 2rem;
 			display         : flex;
 			align-items     : center;
 			justify-content : center;
+			margin-top      : $marginTopBottom;
+			height          : auto;
 
-			@media screen and (min-width:700px){
-				height 		: 35vh;
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-bottom : $marginTopBottom;
+			}
+
+			@media screen and (min-width : $mediaBreakpointColumnToRow) {
+				height : 32vh;
 			}
 
 			.v-centering {
-				width           : 100%;
 				display         : flex;
+				flex-direction  : row;
 				align-items     : flex-start;
 				justify-content : center;
+				width           : 100%;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					flex-direction : column;
+					align-items    : center;
+				}
 			}
 
 			.cards {
 				display        : flex;
 				flex-direction : column;
-				width          : 20%;
-				max-width      : 260px;
+				width          : 100%;
+				max-width      : $maxCardWidth;
 
 				&:nth-child(2) {
-					margin-left  : 3rem;
-					margin-right : 3rem;
+					margin-left  : $marginBetweenCards;
+					margin-right : $marginBetweenCards;
 
-					@media screen and (max-width:700px){
-						margin-top 		: 1rem;
-						margin-bottom 	: 1rem;
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						margin : 1rem 0;
 					}
 
-					@media screen and (min-width:700px) and (max-width:1500px){
-						margin: 0;
+					@media screen and (min-width : $mediaBreakpointHero) and (max-width : $mediaBreakpointColumnToRow) {
+						margin-left  : 0;
+						margin-right : 0;
 					}
 				}
 			}
@@ -729,14 +779,14 @@
 				font-weight : $fontWeightLight;
 				font-size   : 0.9rem;
 			}
-
-			@media screen and (max-width:700px){
-				height : auto;
-			}
 		}
 
 		.nextScreen {
 			align-self : center;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				display : none;
+			}
 		}
 	}
 
@@ -745,37 +795,49 @@
 		display          : flex;
 		flex-direction   : column;
 		align-items      : center;
-
 		$marginTopDownWhatIsIt : 4rem;
 
 		.description {
 			margin-top    : 3rem;
 			margin-bottom : $marginTopDownWhatIsIt;
 
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-top    : 2rem;
+				margin-bottom : 2rem;
+			}
+
 			.title {
 				font-size : 2rem;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					font-size : 1.5rem;
+				}
 			}
 
 			.subTitle {
 				margin-top : 0.5rem;
 				font-size  : 1.4rem;
 				max-width  : 700px;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					font-size : 1.05rem;
+				}
 			}
 		}
 
 		.examples {
 			display         : flex;
 			justify-content : space-around;
-			width 			: 100%;
+			width           : 100%;
 			max-width       : 1100px;
 
-			@media screen and (min-width:700px) and (max-width:1500px){
+			@media screen and (min-width : $mediaBreakpointHero) and (max-width : 1500px) {
 				width : 95%;
 			}
 
 			& > div {
- 				width 		: 40%;
- 				max-width	: 440px;
+				width     : 40%;
+				max-width : 440px;
 			}
 
 			.try {
@@ -784,7 +846,7 @@
 				align-items    : center;
 
 				p {
-					font-size  : 0.9rem;
+					font-size : 0.9rem;
 				}
 
 				del {
@@ -804,12 +866,21 @@
 				.title {
 					font-size   : 1.2rem;
 					font-weight : $fontWeightMedium;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						font-size : 1.05rem;
+						max-width : 270px;
+					}
 				}
 
 				.subTitle {
 					margin-top    : 0.5rem;
 					margin-bottom : 1rem;
 					max-width     : 270px;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						line-height: 1.1rem;
+					}
 				}
 
 				input {
@@ -822,6 +893,11 @@
 					text-align       : center;
 					font-weight      : $fontWeightRegular;
 					font-size        : 1.5rem;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						min-width : unset;
+						width     : 80%
+					}
 				}
 
 				.showRawValue {
@@ -839,6 +915,18 @@
 					display         : flex;
 					min-width       : 270px;
 					justify-content : space-between;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						button:first-child {
+							padding-left  : 0.2rem;
+							padding-right : 0.5rem;
+						}
+
+						button:last-child {
+							padding-left  : 0.5rem;
+							padding-right : 0.2rem;
+						}
+					}
 				}
 			}
 
@@ -855,8 +943,12 @@
 				align-items    : stretch;
 
 				.title {
-					font-size  : 0.9rem;
-					font-weight: $fontWeightMedium;
+					font-size   : 0.9rem;
+					font-weight : $fontWeightMedium;
+
+					@media screen and (max-width : $mediaBreakpointColumnToRow) {
+						margin-top : 1rem;
+					}
 				}
 
 				#pagination {
@@ -874,7 +966,7 @@
 						border           : 1px solid transparent;
 						background-color : #B2C4D1;
 						transition       : background-color 0.3s ease;
-						pointer-events : none;
+						pointer-events   : none;
 
 						&:not(:last-child) {
 							margin-right : 0.5rem;
@@ -910,6 +1002,10 @@
 		.configurator {
 			margin-top : $marginTopDownWhatIsIt;
 
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-top : 2.5rem;
+			}
+
 			strong {
 				font-weight : $fontWeightMedium;
 			}
@@ -919,6 +1015,10 @@
 			margin-top    : 1rem;
 			margin-bottom : 3rem;
 			font-size     : 0.9rem;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-bottom : 2rem;
+			}
 		}
 	}
 
@@ -928,16 +1028,20 @@
 		align-items    : center;
 
 		.line {
-			max-width       : 1100px;
 			display         : flex;
-			justify-content : space-between;
+			flex-direction  : row;
+			justify-content : center;
 			$spacingTopBottom : 4rem;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				flex-direction: column;
+			}
 
 			&:first-child {
 				margin-top    : 3rem;
 				margin-bottom : $spacingTopBottom;
 
-				@media screen and (max-width:700px){
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
 					margin-bottom : 0;
 				}
 			}
@@ -950,15 +1054,20 @@
 		.point {
 			display        : flex;
 			flex-direction : column;
+			max-width      : $maxCardWidth;
 
-			@media screen and (min-width:800px){
-				width     : 30%;
-				max-width : 260px;
-				margin 	  : 0 15px;
+			&:nth-child(2) {
+				margin-left  : $marginBetweenCards;
+				margin-right : $marginBetweenCards;
+
+				@media screen and (max-width : $mediaBreakpointColumnToRow) {
+					margin-left  : 0;
+					margin-right : 0;
+				}
 			}
 
-			@media screen and (max-width:700px){
-				margin: 1rem 0;
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-bottom : 1.5rem;
 			}
 
 			.title { //FIXME DRY this with .keyFeatures (or not)
@@ -977,40 +1086,34 @@
 	}
 
 	#footer {
-		align-items       : center;
-		color             : white;
-		background-image  : linear-gradient($colorBgFooterPrimary, $colorBgFooterSecondary);
-		display 		  : flex;
-		flex-direction 	  : column;
-
+		display          : flex;
+		flex-direction   : column;
+		align-items      : center;
+		color            : white;
+		background-image : linear-gradient($colorBgFooterPrimary, $colorBgFooterSecondary);
 		$spacingTopBottom : 4rem;
 
-		& > .row{
-			padding-top    : $spacingTopBottom;
-			margin-bottom  : $spacingTopBottom;
-			max-width : 1100px;
+		& > .row {
+			padding-top   : $spacingTopBottom;
+			margin-bottom : $spacingTopBottom;
+			max-width     : 1100px;
 
-			@media screen and (max-width:700px){
-				margin-bottom: 0;
+			@media screen and (max-width : $mediaBreakpointHero) {
+				margin-bottom : 0;
 			}
 
-
 			& > .line {
-				display 				: grid;
-			    grid-template-columns	: repeat(3,1fr);
-				-ms-grid-rows			: (auto)[4];
-				grid-template-rows		: repeat(4,auto);
-				grid-auto-flow			: column;
-				grid-column-gap			: 2rem;
-				max-width				: 1100px;
-				-webkit-box-align		: start;
-				-ms-flex-align			: start;
-				align-items				: start;
-				-ms-grid-column-align	: center;
-				justify-items			: center;
+				display               : grid;
+				grid-template-columns : repeat(3, 1fr);
+				grid-template-rows    : repeat(4, auto);
+				grid-auto-flow        : column;
+				grid-column-gap       : 2rem;
+				max-width             : 1100px;
+				align-items           : start;
+				justify-items         : center;
 
-				@media screen and (max-width:700px){
-					display: block;
+				@media screen and (max-width : $mediaBreakpointHero) {
+					display : block;
 				}
 
 				& > a,
@@ -1019,7 +1122,7 @@
 					justify-content  : center;
 					align-items      : center;
 					width            : 70%;
-					max-width		 : 250px;
+					max-width        : 250px;
 					margin           : 1rem auto 0 auto;
 					color            : #B0DEFF;
 					background-color : #295375;
@@ -1030,8 +1133,8 @@
 					height           : 40px;
 					font-size        : 0.9rem;
 
-					@media screen and (max-width:700px){
-						margin-bottom: 4rem;
+					@media screen and (max-width : $mediaBreakpointHero) {
+						margin-bottom : 4rem;
 					}
 
 					&:hover {
@@ -1058,6 +1161,12 @@
 			font-family : 'Open Sans', sans-serif;
 			font-weight : $fontWeightLight;
 			font-size   : 0.9rem;
+			max-width   : 320px;
+
+			@media screen and (max-width : $mediaBreakpointColumnToRow) {
+				margin-left  : 1rem;
+				margin-right : 1rem;
+			}
 
 			a {
 				color : #73B0E6;
@@ -1102,8 +1211,8 @@
 			margin-top    : 3rem;
 			margin-bottom : 10rem;
 
-			@media screen and (max-width:700px){
-				margin: 1rem 0 5rem 0;
+			@media screen and (max-width : $mediaBreakpointHero) {
+				margin : 1rem 0 5rem 0;
 			}
 		}
 	}
