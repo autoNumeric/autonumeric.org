@@ -74,6 +74,7 @@
 								</q-btn>
 							</router-link>
 						</div>
+						<p class="version" v-if="latestAutoNumericVersion">Latest version: <a :href="autoNumericVersionLink"><code>{{ latestAutoNumericVersion }}</code></a></p>
 						<p class="support">Help AutoNumeric by <router-link to="support">supporting</router-link> it</p>
 					</div>
 				</div>
@@ -145,7 +146,8 @@
 						<ul id="pagination">
 							<li v-for="item in optionsArray"></li>
 						</ul>
-						<!--<div class="note">Note: While the input value is formatted, you can always access the unformatted raw value using <code>aNElement.getNumericString()</code></div>-->
+						<div class="note">Note: While the input value is formatted, you can always access the unformatted raw value using <code>aNElement.getNumericString()</code></div>
+						<p class="play">Play with the <a href="https://codepen.io/AnotherLinuxUser/pen/JyBGpz?editors=1010">live demo</a> and the <a href="https://codepen.io/AnotherLinuxUser/pen/pWgOrZ">vue-autonumeric demo</a>.</p>
 					</div>
 				</div>
 				<p class="configurator">Use the <router-link to="configurator">configuration generator</router-link> to easily setup the format <strong>you</strong> want.</p>
@@ -175,9 +177,13 @@
 						<div class="title">Android support</div>
 						<div class="details">While the Android platform makes input management <a href="https://medium.com/outsystems-experts/javascript-events-unmasked-how-to-create-an-input-mask-for-mobile-fc0df165e8b2">hard to play with</a>, AutoNumeric supports it.</div>
 					</div>
+					<!--<div class="point">-->
+						<!--<div class="title">Super documentation</div>-->
+						<!--<div class="details">Crystal clear <router-link to="guide">documentation</router-link> that provides great tips and <router-link to="examples">examples</router-link> with source code available.</div>-->
+					<!--</div>-->
 					<div class="point">
-						<div class="title">Super documentation</div>
-						<div class="details">Crystal clear <router-link to="guide">documentation</router-link> that provides great tips and <router-link to="examples">examples</router-link> with source code available.</div>
+						<div class="title">Framework-ready</div>
+						<div class="details">AutoNumeric strives to be framework-agnostic, which means you can easily integrate it with <a href="https://github.com/autoNumeric/autoNumeric/#related-projects">third-party frameworks</a>. Checkout the official <a href="https://github.com/autoNumeric/vue-autoNumeric">Vue-AutoNumeric</a> component.</div>
 					</div>
 				</div>
 			</div>
@@ -231,7 +237,7 @@
         QScrollArea,
         openURL,
     } from 'quasar-framework';
-//    import AutoNumeric from '../../node_modules/autonumeric/src/main'; // Use that to get the IDE Autocompletion
+    // import AutoNumeric from '../../node_modules/autonumeric/src/main'; // Use that to get the IDE Autocompletion
     import AutoNumeric from '../../node_modules/autonumeric/dist/autoNumeric.min'; // Use that for building the website, since Uglify does not correctly support ES6 yet (cf. https://github.com/mishoo/UglifyJS2/issues/659 and https://github.com/joeeames/WebpackFundamentalsCourse/issues/3)
     import hljs from '../../node_modules/highlight.js/lib/highlight';
 
@@ -254,8 +260,23 @@
             QScrollArea,
         },
 
+        computed: {
+            localAutoNumericVersion() {
+                return AutoNumeric.version();
+            },
+
+            localAutoNumericVersionLink() {
+                return `https://github.com/autoNumeric/autoNumeric/releases/tag/v${this.localAutoNumericVersion}`;
+            },
+
+            autoNumericVersionLink() {
+                return `https://github.com/autoNumeric/autoNumeric/releases/tag/v${this.latestAutoNumericVersion}`;
+            },
+        },
+
         data() {
             return {
+                latestAutoNumericVersion : null,
                 layoutStore: {
                     view           : 'lhr Lpr lff',
                     reveal         : true,
@@ -379,6 +400,11 @@
             };
         },
 
+        created() {
+            // Retrieve the latest AutoNumeric version available from npmjs
+            this.getLatestAutoNumericVersion();
+        },
+
         mounted() {
             // Initialize the AutoNumeric element
             this.aNElement = new AutoNumeric('#test').french();
@@ -397,6 +423,20 @@
         },
 
         methods: {
+            async getLatestAutoNumericVersion() {
+                //XXX Note; you cannot directly query npmjs.org (`await fetch('https://registry.npmjs.org/autonumeric', { mode: 'no-cors' })`) because of the CORS limitation, and need to use a CORS proxy to access the data from JS
+                await fetch('http://cors-proxy.htmldriven.com/?url=https://registry.npmjs.org/autonumeric')
+                    .then(response => response.json())
+                    .then(json => {
+                        try {
+                            json                          = JSON.parse(json.body);
+                            this.latestAutoNumericVersion = json['dist-tags'].latest;
+                        } catch (e) {
+                            console.warn(`Unable to retrieve the latest AutoNumeric version from the npmjs registry. Please contact the website author if the problem persist.`);
+                        }
+                    });
+            },
+
             openURL,
 
             toggleLeft() {
@@ -694,6 +734,18 @@
 			}
 		}
 
+		.version {
+			a {
+				color: white;
+				text-decoration : none;
+				transition: color 0.3s ease;
+
+				&:hover {
+					color: $primary;
+				}
+			}
+		}
+
 		.support {
 			font-size     : 1rem;
 			font-style    : italic;
@@ -977,6 +1029,11 @@
 
 				.note {
 					font-size : 0.75rem;
+					color     : grey;
+				}
+
+				.play {
+					margin-top : 1rem;
 				}
 			}
 		}
