@@ -1589,7 +1589,7 @@ Note: You can see the <code>rawValue</code> by pressing the <code>Alt</code> key
                         description      : `Those spaces <code>' '</code> can either be converted to the plus sign <code>'+'</code>, which is the default, or to <code>'%20'</code>.<br><br>
 Both values are valid according to the <a href="http://www.w3.org/Addressing/URL/uri-spec.html">official specification</a>.<br>
 <br>
-However this <a href="http://stackoverflow.com/a/33939287">stackoverflow answer</a> sum up the situation pretty well: In an URL, spaces should be converted to <code>'%20'</code> before the <code>'?'</code> sign, then converted to <code>'+'</code> after.<br>
+However this <a href="http://stackoverflow.com/a/33939287">stackoverflow answer</a> sums up the situation pretty well: In an URL, spaces should be converted to <code>'%20'</code> before the <code>'?'</code> sign, then converted to <code>'+'</code> after.<br>
 In our case since we serialize the query, we use <code>'+'</code> as the default (but allow the user to get back the old <i>wrong</i> behavior).`,
                         initialValue     : 12345.67, // The initial value shared with the same v-model
                         optionList       : [
