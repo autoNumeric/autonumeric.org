@@ -1,6 +1,6 @@
 {
   "name": "autonumeric.org",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "The official AutoNumeric website",
   "author": "Alexandre Bonneau <alexandre.bonneau@linuxfr.eu>",
   "scripts": {

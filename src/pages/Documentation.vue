@@ -11,22 +11,20 @@
 		<h4>Options</h4>
 		<p>Multiple options allows you to customize precisely how your AutoNumeric-managed element will format your key strokes as you type.</p>
 		<p>As of now, <strong>{{ options.length }}</strong> options are available and listed below:</p>
-		<table class="optionsList table">
-			<div class="table">
-				<div class="header">
-					<div>Option</div>
-					<div>Description</div>
-					<div>Default value</div>
-				</div>
-				<div class="rowGroup">
-					<div class="row" v-for="o in options">
-						<router-link :to="'#'+o.name"><div class="optionName">{{ o.name }}</div></router-link>
-						<div class="desc" v-html="o.descriptionShort"></div>
-						<div class="defaultValue"><code>{{ getDefaultValue(o) }}</code></div>
-					</div>
+		<div class="optionsList table">
+			<div class="header">
+				<div>Option</div>
+				<div>Description</div>
+				<div>Default value</div>
+			</div>
+			<div class="rowGroup">
+				<div class="row" v-for="o in options">
+					<router-link :to="'#'+o.name"><div class="optionName">{{ o.name }}</div></router-link>
+					<div class="desc" v-html="o.descriptionShort"></div>
+					<div class="defaultValue"><code>{{ getDefaultValue(o) }}</code></div>
 				</div>
 			</div>
-		</table>
+		</div>
 
 		<div class="optionsDocumentation">
 			<autonumeric-option v-for="option in options" :key="option.name"
@@ -2110,6 +2108,12 @@ Note: A <code>float</code> step can be used, but as always Javascript has limita
 
 	.defaultValue code {
 		background-color : rgba(217, 217, 217, 0.2235) !important;
+	}
+
+	.layout-padding {
+		display        : flex;
+		flex-direction : column;
+		align-items    : center;
 	}
 
 	.table {
