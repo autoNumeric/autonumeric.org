@@ -21,7 +21,7 @@ module.exports = {
 
     build: {
         env                : require('./prod.env'),
-        publicPath         : '/',
+        publicPath         : '/', // In 'hash' mode, this needs to be empty for Cordova builds (see `src/router.js` for the details)
         productionSourceMap: false,
 
         // Remove unused CSS

@@ -1,9 +1,9 @@
 <template>
-	<div class="option">
+	<div class="option" :id="name">
 		<!--//TODO i18n this component-->
 		<div class="optionInfo">
 			<div class="optionNameAndCount">
-				<a :href="'#'+name"><div class="optionName" :id="name">{{ name }}</div></a>
+				<router-link :to="'#'+name"><div class="optionName">{{ name }}</div></router-link>
 				<div class="count">{{ optionList.length }} choice{{ (optionList.length > 1)?'s':'' }}{{ isOptionChoiceOpen?` (You can customize the option value)`:''}}</div>
 			</div>
 			<div class="descriptions">
@@ -695,5 +695,9 @@
 		&:hover {
 			border-color : transparent !important;
 		}
+	}
+
+	strong {
+		font-weight : bold;
 	}
 </style>

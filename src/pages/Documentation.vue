@@ -1,7 +1,6 @@
 <template>
 	<!-- if you want automatic padding use "layout-padding" class -->
 	<div class="layout-padding">
-		<!-- your content -->
 		<h5>Documentation</h5>
 
 		<q-icon name="build" size="100px" color="orange"></q-icon>
@@ -11,13 +10,30 @@
 
 		<h4>Options</h4>
 		<p>Multiple options allows you to customize precisely how your AutoNumeric-managed element will format your key strokes as you type.</p>
+		<p>As of now, <strong>{{ options.length }}</strong> options are available and listed below:</p>
+		<table class="optionsList table">
+			<div class="table">
+				<div class="header">
+					<div>Option</div>
+					<div>Description</div>
+					<div>Default value</div>
+				</div>
+				<div class="rowGroup">
+					<div class="row" v-for="o in options">
+						<router-link :to="'#'+o.name"><div class="optionName">{{ o.name }}</div></router-link>
+						<div class="desc" v-html="o.descriptionShort"></div>
+						<div class="defaultValue"><code>{{ getDefaultValue(o) }}</code></div>
+					</div>
+				</div>
+			</div>
+		</table>
+
 		<div class="optionsDocumentation">
 			<autonumeric-option v-for="option in options" :key="option.name"
 			                    :name="option.name"
 			                    :description="option.description"
 			                    :descriptionShort="option.descriptionShort"
 			                    :defaultValue="option.defaultValue"
-			                    :defaultValueAlt="option.defaultValueAlt"
 			                    :optionList="option.optionList"
 			                    :additionalInfo="option.additionalInfo"
 			                    :additionalOptions="option.additionalOptions"
@@ -647,7 +663,7 @@
                     {
                         name             : 'emptyInputBehavior',
                         descriptionShort : 'Defines what should be displayed in the element if the raw value is an empty string <code>\'\'</code>',
-                        description      : 'On blur, the element value is multiplied back.<br><br>Example:<br>Display percentages using <code>{ divisorWhenUnfocused: 100 }</code> (or directly in the Html with <code>&lt;input data-divisor-when-unfocused="100"&gt;</code>)<br>The divisor value can be an integer or a float (but in the latter case with some limitations).<br>Note: The <code>getNumericString()</code> method returns the full value, including the <i>hidden</i> decimals when unfocused.',
+                        description      : 'Depending of this option value, you can decide to display nothing, the currency symbol, on focus or only when a key is being pressed.',
                         initialValue     : 1234.56, // The initial value shared with the same v-model
                         optionList       : [
                             {
@@ -681,6 +697,54 @@
                         additionalOptions: {
                             currencySymbol : '€',
                             currencySymbolPlacement : 's',
+                        }, // Other options that needs to be set in conjunction
+                        isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
+                    },
+                    {
+                        name             : 'eventBubbles',
+                        descriptionShort : 'Defines if the custom and native events triggered by AutoNumeric should bubble up or not',
+                        description      : '',
+                        initialValue     : 1234.56, // The initial value shared with the same v-model
+                        optionList       : [
+                            {
+                                optionChoice: 'bubbles',
+                                value       : true,
+                                description : `All native and custom events will bubble up`,
+                                defaultValue: true,
+                            },
+                            {
+                                optionChoice: 'doesNotBubble',
+                                value       : false,
+                                description : `No events dispatched by AutoNumeric will bubble up`,
+                            },
+                        ],
+                        additionalInfo   : 'Note: this <strong>also</strong> affects the native <code>input</code> and <code>change</code> events',
+                        additionalOptions: {
+                            //
+                        }, // Other options that needs to be set in conjunction
+                        isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
+                    },
+                    {
+                        name             : 'eventIsCancelable',
+                        descriptionShort : 'Defines if the custom and native events triggered by AutoNumeric should be cancelable',
+                        description      : '',
+                        initialValue     : 1234.56, // The initial value shared with the same v-model
+                        optionList       : [
+                            {
+                                optionChoice: 'isCancelable',
+                                value       : true,
+                                description : `All native and custom events will be cancelable`,
+                                defaultValue: true,
+                            },
+                            {
+                                optionChoice: 'isNotCancelable',
+                                value       : false,
+                                description : `No events dispatched by AutoNumeric will be cancelable`,
+                            },
+                        ],
+                        additionalInfo   : 'Note: this <strong>also</strong> affects the native <code>input</code> and <code>change</code> events',
+                        additionalOptions: {
+                            //
                         }, // Other options that needs to be set in conjunction
                         isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
                     },
@@ -1929,6 +1993,30 @@ The formatted values are immediately set back after the <code>submit</code> even
                         defaultCustomValue: { 42: 'The answer' }, // Defines the default value to use in the customChoice input by default
                     },
                     {
+                        name             : 'watchExternalChanges',
+                        descriptionShort : 'Defines if the AutoNumeric element should watch external changes made without using <code>.set()</code>',
+                        description      : 'This allows to be aware of changes made directly to the input value using direct access to the <code>element.value</code> property, like <code>aNElement.node().value = 42</code>.',
+                        initialValue     : 1234.56, // The initial value shared with the same v-model
+                        optionList       : [
+                            {
+                                optionChoice: 'watch',
+                                value       : true,
+                                description : `AutoNumeric will format the new value using <code>.set()</code> internally`,
+                            },
+                            {
+                                optionChoice: 'doNotWatch',
+                                value       : false,
+                                description : `AutoNumeric won't format the new value set externally, nor save it in the history`,
+                                defaultValue: true,
+                            },
+                        ],
+                        additionalInfo   : `You can try to run <code>AutoNumeric.getElement('#watchExternalChanges input').node().value = 42</code> in the console and see how the AutoNumeric-managed element react`,
+                        additionalOptions: {
+                            //
+                        }, // Other options that needs to be set in conjunction
+                        isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
+                    },
+                    {
                         name             : 'wheelOn',
                         descriptionShort : 'Defines when the <code>wheel</code> event will increment or decrement the element value',
                         description      : `This options accepts two choices:
@@ -1982,6 +2070,17 @@ Note: A <code>float</code> step can be used, but as always Javascript has limita
                 ],
             };
         },
+
+        methods: {
+            getDefaultValue(optionObject) {
+                const defaultValue = optionObject.optionList.find(option => option.defaultValue !== void(0)).value;
+
+                if (typeof defaultValue === 'string') return `'${defaultValue}'`;
+                if (defaultValue === null) return `null`;
+
+                return defaultValue;
+            },
+        },
     };
 </script>
 
@@ -2011,5 +2110,39 @@ Note: A <code>float</code> step can be used, but as always Javascript has limita
 
 	.defaultValue code {
 		background-color : rgba(217, 217, 217, 0.2235) !important;
+	}
+
+	.table {
+		display   : table;
+		font-size : 0.8rem;
+
+		.header {
+			display     : table-header-group;
+			font-weight : bold;
+
+			& > * {
+				display : table-cell;
+			}
+		}
+
+		.rowGroup {
+			display : table-row-group;
+
+			& > div.row {
+				display : table-row;
+
+				&:hover {
+					background-color: aliceblue;
+				}
+
+				& > * {
+					display : table-cell;
+
+					&.desc {
+						text-align : left;
+					}
+				}
+			}
+		}
 	}
 </style>

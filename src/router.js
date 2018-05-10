@@ -61,6 +61,7 @@ export default new VueRouter({
      * If switching back to default "hash" mode, don't forget to set the
      * build publicPath back to '' so Cordova builds work again.
      */
+    mode: 'history',
 
     routes: [
         { path: '/', component: loadPage('Index') },
@@ -76,8 +77,6 @@ export default new VueRouter({
         { path: '*', component: loadPage('NotFound') },
         // { path: '*', redirect: '/404' },
     ],
-
-    mode: 'hash',
 
     scrollBehavior(to, from, savedPosition) {
         if (to.hash) {
