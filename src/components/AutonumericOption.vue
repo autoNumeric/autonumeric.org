@@ -26,6 +26,7 @@
 				     :key="option.optionChoice"
 				     @mouseenter="hoveredChoice = option.optionChoice"
 				     @mouseleave="hoveredChoice = ''"
+				     :id="`${name}-${option.optionChoice}`"
 				>
 					<div>{{ option.optionChoice }}</div>
 					<div><code>{{ shownValue(option.value) }}</code></div>

@@ -69,7 +69,7 @@ export default new VueRouter({
             children: [
                 { path: 'guide', component: loadPage('Documentation') },
                 { path: 'examples', component: loadPage('Examples') },
-                { path: 'configurator', component: loadPage('Configurator') },
+                { path: 'configurator', component: loadPage('ConfiguratorPage') },
                 { path: 'support', component: loadPage('Support') },
                 { path: 'contacts', component: loadPage('Contacts') },
             ],
