@@ -12,15 +12,11 @@
 </template>
 
 <script>
-    import {
-        QIcon,
-    } from 'quasar-framework';
-
     export default {
         name: 'Examples',
 
         components: {
-            QIcon,
+            //
         },
 
         data() {

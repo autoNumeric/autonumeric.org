@@ -26,6 +26,7 @@
 				     :key="option.optionChoice"
 				     @mouseenter="hoveredChoice = option.optionChoice"
 				     @mouseleave="hoveredChoice = ''"
+				     :id="`${name}-${option.optionChoice}`"
 				>
 					<div>{{ option.optionChoice }}</div>
 					<div><code>{{ shownValue(option.value) }}</code></div>
@@ -85,8 +86,9 @@
 </template>
 
 <script type="text/babel">
-    import AutoNumeric from 'AutoNumeric';
-    import VueAutonumeric from 'VueAutonumeric';
+    import formatting from '../mixins/formatting';
+    import AutoNumeric from 'autonumeric';
+    import VueAutonumeric from 'vue-autonumeric';
 
     export default {
         name: 'AutonumericOption',
@@ -94,6 +96,10 @@
         components: {
             VueAutonumeric,
         },
+
+        mixins: [
+            formatting,
+        ],
 
         props: {
             /**
@@ -164,7 +170,7 @@
              * If passed, this is used as the default value for the custom input element
              */
             defaultCustomValue: {
-                type    : [Number, String, Boolean],
+                type    : [Number, String, Boolean, Object],
                 required: false,
             },
         },
@@ -260,22 +266,6 @@
              */
             autoNumericOptionObject(optionName, optionValue, additionalOptions) {
                 return Object.assign({}, { [optionName]: optionValue }, additionalOptions); // Merge the options together
-            },
-
-            /**
-             * Add quotes if the given value is a String
-             *
-             * @param {*|string} value
-             * @returns {*}
-             */
-            shownValue(value) {
-                if (typeof value === 'string') {
-                    return `'${value}'`;
-                } else if (value === null) {
-                    return 'null';
-                } else {
-                    return value;
-                }
             },
         },
 

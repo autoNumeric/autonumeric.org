@@ -8,38 +8,48 @@
 				:reveal="layoutStore.reveal"
 		>
 			<!-- Left Side Panel -->
-			<q-scroll-area slot="left" style="width: 100%; height: 100%">
-				<q-list-header>Navigation</q-list-header>
-				<q-side-link item to="/">
-					<q-item-side icon="home" />
-					<q-item-main label="Home" sublabel="AutoNumeric homepage" />
-					<q-item-side right icon="grade" />
-				</q-side-link>
-				<q-side-link item to="/guide">
-					<q-item-side icon="collections_bookmark" />
-					<q-item-main label="Documentation" sublabel="View the guide" />
-				</q-side-link>
-				<q-side-link item to="/examples">
-					<q-item-side icon="euro_symbol" />
-					<q-item-main label="Examples" sublabel="View thy code source" />
-				</q-side-link>
-				<q-side-link item to="/configurator">
-					<q-item-side icon="developer_board" />
-					<q-item-main label="Configurator" sublabel="Generate your custom options" />
-				</q-side-link>
-				<q-side-link item to="/contacts">
-					<q-item-side icon="question_answer" />
-					<q-item-main label="Contacts" sublabel="Contact us" />
-				</q-side-link>
-				<q-side-link item to="/support">
-					<q-item-side icon="thumb_up" />
-					<q-item-main label="Support" sublabel="Donate to support development" />
-				</q-side-link>
-			</q-scroll-area>
+			<q-layout-drawer
+					v-model="leftDrawerOpen"
+					:content-class="$q.theme === 'mat' ? 'bg-grey-2' : null"
+					side="left"
+			>
+				<q-list
+						no-border
+						link
+						inset-delimiter
+				>
+					<q-list-header>Navigation</q-list-header>
+					<q-item to="/">
+						<q-item-side icon="home" />
+						<q-item-main label="Home" sublabel="AutoNumeric homepage" />
+						<q-item-side right icon="grade" />
+					</q-item>
+					<q-item to="/guide">
+						<q-item-side icon="collections_bookmark" />
+						<q-item-main label="Documentation" sublabel="View the guide" />
+					</q-item>
+					<q-item to="/examples">
+						<q-item-side icon="euro_symbol" />
+						<q-item-main label="Examples" sublabel="View thy code source" />
+					</q-item>
+					<q-item to="/configurator">
+						<q-item-side icon="developer_board" />
+						<q-item-main label="Configurator" sublabel="Generate your custom options" />
+					</q-item>
+					<q-item to="/contacts">
+						<q-item-side icon="question_answer" />
+						<q-item-main label="Contacts" sublabel="Contact us" />
+					</q-item>
+					<q-item to="/support">
+						<q-item-side icon="thumb_up" />
+						<q-item-main label="Support" sublabel="Donate to support development" />
+					</q-item>
+				</q-list>
+			</q-layout-drawer>
 
 			<!-- Github link -->
 			<a id="githubRibbon" href="https://github.com/autoNumeric/autoNumeric/"><img src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
-			<q-btn flat @click="toggleLeft" class="burger">
+			<q-btn flat @click="toggleLeftDrawer" class="burger">
 				<q-icon name="menu" />
 			</q-btn>
 			<div class="firstScreen">
@@ -62,11 +72,10 @@
 						<div class="heroActions">
 							<router-link to="guide">
 								<!--@click="$router.push('/guide')"-->
-								<q-btn icon="help" big>Get started</q-btn>
+								<q-btn icon="help" size="md" label="Get started"/>
 							</router-link>
 							<router-link to="configurator">
-								<q-btn icon="list" outline big>
-									Generate your formatting options
+								<q-btn icon="list" outline size="md" label="Generate your formatting options">
 									<q-tooltip
 											:delay="1500"
 											:offset="[0, 15]"
@@ -131,8 +140,8 @@
 							><div class="rawValueTooltip">You can <strong>always</strong> access the unformatted raw value using `<code>aNElement.getNumericString()</code>`</div></q-tooltip>
 						</p>
 						<div class="controls">
-							<q-btn @click="previousOption" small flat icon="keyboard_arrow_left" color="grey">Previous options</q-btn>
-							<q-btn @click="nextOption" small flat icon-right="keyboard_arrow_right" color="grey">Next options</q-btn>
+							<q-btn @click="previousOption" size="sm" flat icon="keyboard_arrow_left" color="grey" label="Previous options"/>
+							<q-btn @click="nextOption" size="sm" flat icon-right="keyboard_arrow_right" color="grey" label="Next options"/>
 						</div>
 					</div>
 					<div class="source col-xs-12 col-md-6">
@@ -193,15 +202,15 @@
 						<div class="title">Contribute</div>
 						<div class="subTitle">Help build AutoNumeric</div>
 						<div class="details">AutoNumeric is and always will be 100% free and open-source under the MIT license.<br>Fork it on GitHub and help make it bettter.</div>
-						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#how-to-contribute')">Fork on Github</q-btn>
+						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/#how-to-contribute')" label="Fork on Github"/>
 						<div class="title">Donate</div>
 						<div class="subTitle">Support AutoNumeric development</div>
 						<div class="details">Help pay for dedicated dev time so that AutoNumeric can move forward and evolve.<br>If you are a company that uses AutoNumeric daily, your support means a lot!</div>
-						<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate">Donate</q-btn>
+						<q-btn flat @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate" label="Donate"/>
 						<div class="title">Feedback</div>
 						<div class="subTitle">Your ideas are precious</div>
 						<div class="details">Your ideas and comments are very important to us.<br>Open up an issue on Github for any feature requests or problems, and we'll get on it.<br>Alternatively, if you have a question ping us on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">Gitter channel</a> or <a href="https://webchat.freenode.net/#autoNumeric" target="_blank">IRC</a>.</div>
-						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Open an issue</q-btn>
+						<q-btn flat @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')" label="Open an issue"/>
 					</div>
 				</div>
 				<ul class="nav">
@@ -222,21 +231,15 @@
 
 <script>
     import {
-        QBtn,
-        QIcon,
         QCard,
         QCardMain,
         QCardTitle,
         QCardSeparator,
         QTooltip,
         QLayout,
-        QListHeader,
-        QSideLink,
-        QItemSide,
-        QItemMain,
         QScrollArea,
         openURL,
-    } from 'quasar-framework';
+    } from 'quasar';
     // import AutoNumeric from '../../node_modules/autonumeric/src/main'; // Use that to get the IDE Autocompletion
     import AutoNumeric from '../../node_modules/autonumeric/dist/autoNumeric.min'; // Use that for building the website, since Uglify does not correctly support ES6 yet (cf. https://github.com/mishoo/UglifyJS2/issues/659 and https://github.com/joeeames/WebpackFundamentalsCourse/issues/3)
     import hljs from '../../node_modules/highlight.js/lib/highlight';
@@ -245,18 +248,12 @@
         name: 'homepage',
 
         components: {
-            QBtn,
-            QIcon,
             QCard,
             QCardMain,
             QCardTitle,
             QCardSeparator,
             QTooltip,
             QLayout,
-            QListHeader,
-            QSideLink,
-            QItemSide,
-            QItemMain,
             QScrollArea,
         },
 
@@ -276,8 +273,9 @@
 
         data() {
             return {
-                latestAutoNumericVersion : null,
-                layoutStore: {
+                leftDrawerOpen          : false,
+                latestAutoNumericVersion: null,
+                layoutStore             : {
                     view           : 'lhr Lpr lff',
                     reveal         : true,
                     leftScroll     : true,
@@ -439,8 +437,8 @@
 
             openURL,
 
-            toggleLeft() {
-                this.$refs.layout.toggleLeft();
+            toggleLeftDrawer() {
+                this.leftDrawerOpen = !this.leftDrawerOpen;
             },
 
             nextOption() {
@@ -674,12 +672,13 @@
 
 		.heroTitle {
 			font-size     : 3.2rem;
-			margin-top    : 2rem;
-			margin-bottom : 4rem;
+			margin-top    : 0.5rem;
+			margin-bottom : 2.5rem;
 
 			@media screen and (max-width : $mediaBreakpointHero) {
 				font-size     : 2rem;
-				margin-bottom : 3rem;
+				margin-top    : 1.5rem;
+				margin-bottom : 2rem;
 			}
 		}
 
@@ -964,6 +963,7 @@
 					display         : flex;
 					min-width       : 270px;
 					justify-content : space-between;
+					margin-right    : 0.4rem;
 
 					@media screen and (max-width : $mediaBreakpointColumnToRow) {
 						button:first-child {

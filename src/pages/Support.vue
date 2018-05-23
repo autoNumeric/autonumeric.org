@@ -18,8 +18,8 @@
 		<p>Alternatively, you can just come say <i>Hi</i> on our <a href="https://gitter.im/autoNumeric/autoNumeric" target="_blank">chat</a>.<br>We don't bite!</p>
 
 		<div class="links">
-			<q-btn icon="card_giftcard" @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate" class="donate">Donate</q-btn>
-			<q-btn icon="lightbulb_outline" @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')">Submit Ideas</q-btn>
+			<q-btn icon="card_giftcard" @click="openURL('https://www.patreon.com/user?u=4810062')" id="donate" class="donate" label="Donate"/>
+			<q-btn icon="lightbulb_outline" @click="openURL('https://github.com/autoNumeric/autoNumeric/issues/new')" label="Submit Ideas"/>
 		</div>
 
 		<p>Help this project survive and evolve!</p>
@@ -28,15 +28,14 @@
 
 <script>
     import {
-        QBtn,
         openURL,
-    } from 'quasar-framework';
+    } from 'quasar';
 
     export default {
         name: 'Support',
 
         components: {
-            QBtn,
+            //
         },
 
         data() {
