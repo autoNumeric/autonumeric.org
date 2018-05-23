@@ -1415,8 +1415,12 @@ Note: You can see the <code>rawValue</code> by pressing the <code>Alt</code> key
                 },
                 {
                     name             : 'readOnly',
-                    descriptionShort : 'Defines if the <code>&lt;input&gt;</code> element should be set as <i>read only</i> on initialization',
-                    description      : `When set to <code>true</code>, then the <code>readonly</code> html property is added to the <code>&lt;input&gt;</code> element on initialization.`,
+                    descriptionShort : 'Defines if the element (<code>&lt;input&gt;</code> or another allowed html tag) should be set as <i>read only</i> on initialization',
+                    description      : `When set to <code>true</code>, then:<br>
+<ul>
+<li>the <code>readonly</code> html property is added to the <code>&lt;input&gt;</code> element on initialization, or</li>
+<li>the <code>contenteditable</code> attribute is set to <code>false</code> on non-input elements.</li>
+</ul>`,
                     initialValue     : 12345.67, // The initial value shared with the same v-model
                     optionList       : [
                         {
