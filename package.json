@@ -1,13 +1,13 @@
 {
   "name": "autonumeric.org",
-  "version": "0.10.0",
+  "version": "0.10.2",
   "description": "The official AutoNumeric website",
   "productName": "autonumeric.org",
   "cordovaId": "org.autonumeric.app",
   "author": "Alexandre Bonneau <alexandre.bonneau@linuxfr.eu>",
   "scripts": {
     "dev": "quasar dev",
-    "build": "quasar build",
+    "build": "quasar build && cp src/404.html dist/spa-mat/ && cp CNAME dist/spa-mat/",
     "lint": "eslint --ext .js,.vue src",
     "lintfix": "eslint --ext .js,.vue src --fix"
   },
