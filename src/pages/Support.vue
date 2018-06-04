@@ -4,7 +4,7 @@
 			<svg class="logo"><use xlink:href="/statics/svg-defs.svg#logo_AutoNumeric_flat"></use></svg>
 		</router-link>
 		<h5>Support AutoNumeric development</h5>
-		<p>AutoNumeric is an MIT licensed open-source project and completely free to use.</p>
+		<p>AutoNumeric is an MIT licensed free software project, completely free to use.</p>
 
 		<p>If you are enjoying the productivity of using AutoNumeric, please <a href="https://www.patreon.com/user?u=4810062" target="_blank">consider donating</a> as a sign of appreciation!<br>If you work with AutoNumeric at work, please share this page with your managers.</p>
 		<p>Your donations will allow me to focus on maintaining and developing new features for AutoNumeric, while also ensuring timely responses and fixes.</p>
