@@ -1,4 +1,5 @@
 // Configuration for your app
+const path = require('path');
 
 module.exports = function(ctx) {
     return {
@@ -36,6 +37,14 @@ module.exports = function(ctx) {
                     loader : 'eslint-loader',
                     exclude: /(node_modules|quasar)/,
                 });
+
+                // We need to declare the AutoNumeric alias starting with vue-autonumeric 1.2.5 (see https://quasar-framework.org/guide/app-quasar.conf.js.html)
+                cfg.resolve.alias = {
+                    ...cfg.resolve.alias, // This adds the existing alias
+
+                    // Add your own alias like this
+                    AutoNumeric: path.resolve('./node_modules/autonumeric/dist/autoNumeric.min'),
+                };
             },
         },
         devServer : {
