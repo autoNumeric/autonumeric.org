@@ -1,6 +1,6 @@
 {
   "name": "autonumeric.org",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "The official AutoNumeric website",
   "productName": "autonumeric.org",
   "cordovaId": "org.autonumeric.app",
@@ -12,7 +12,7 @@
     "lintfix": "eslint --ext .js,.vue src --fix"
   },
   "dependencies": {
-    "autonumeric": "^4.2.15",
+    "autonumeric": "^4.4.0",
     "axios": "^0.18.0",
     "highlight.js": "^9.12.0",
     "vue-autonumeric": "latest",

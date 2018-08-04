@@ -33,6 +33,28 @@ export default {
                     isOptionChoiceOpen : false, // Defines if the user can use other values than those defined in `optionList`
                 },
                 {
+                    name             : 'alwaysAllowDecimalCharacter',
+                    descriptionShort : 'Defines if the decimal character or decimal character alternative should be accepted when there is already a decimal character shown in the element.',
+                    description      : 'If set to <code>true</code>, any decimal character input will be accepted and will subsequently modify the decimal character position, as well as the <code>rawValue</code>.<br>If set to <code>false</code>, the decimal character and its alternative key will be dropped. This is the default setting.',
+                    initialValue     : 2202.674, // The initial value shared with the same v-model
+                    optionList       : [
+                        {
+                            optionChoice: 'alwaysAllow',
+                            value       : true,
+                            description : `Allow entering a decimal character even if one is already present in the number`,
+                        },
+                        {
+                            optionChoice: 'doNotAllow',
+                            value       : false,
+                            description : `Prevent the insertion of the decimal character if one is already used in the number`,
+                            defaultValue: true,
+                        },
+                    ],
+                    additionalInfo   : '',
+                    additionalOptions: {}, // Other options that needs to be set in conjunction
+                    isOptionChoiceOpen : false, // Defines if the user can use other values than those defined in `optionList`
+                },
+                {
                     name             : 'caretPositionOnFocus',
                     descriptionShort : 'Defines where should be positioned the caret on focus',
                     description      : 'Defines where should be positioned the caret on focus',
@@ -89,7 +111,7 @@ export default {
                             description : `Prevent the creation of the local list`,
                         },
                     ],
-                    additionalInfo   : 'This list is used by the <code>global.*</code> functions', //FIXME Not used yet in the component
+                    additionalInfo   : 'This list is used by the <code>global.*</code> functions',
                     additionalOptions: {}, // Other options that needs to be set in conjunction
                     isOptionChoiceOpen : false, // Defines if the user can use other values than those defined in `optionList`
                 },
@@ -603,7 +625,7 @@ export default {
                 {
                     name             : 'emptyInputBehavior',
                     descriptionShort : 'Defines what should be displayed in the element if the raw value is an empty string <code>\'\'</code>',
-                    description      : 'Depending of this option value, you can decide to display nothing, the currency symbol, on focus or only when a key is being pressed.',
+                    description      : 'Depending of this option value, you can decide to either display nothing, only the currency symbol (on focus or only when a key is being pressed), the minimum value, or the maximum value.',
                     initialValue     : 1234.56, // The initial value shared with the same v-model
                     optionList       : [
                         {
@@ -628,6 +650,16 @@ export default {
                             description : `The currency sign is always displayed`,
                         },
                         {
+                            optionChoice: 'min',
+                            value       : 'min',
+                            description : `The <code>minimumValue</code> is displayed on blur`,
+                        },
+                        {
+                            optionChoice: 'max',
+                            value       : 'max',
+                            description : `The <code>maximumValue</code> is displayed on blur`,
+                        },
+                        {
                             optionChoice: 'zero',
                             value       : 'zero',
                             description : `A zero is displayed ('rounded' with or without a currency sign) if the input has no value on focus out`,
@@ -638,7 +670,8 @@ export default {
                         currencySymbol : '€',
                         currencySymbolPlacement : 's',
                     }, // Other options that needs to be set in conjunction
-                    isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
+                    isOptionChoiceOpen: true, // Defines if the user can use other values than those defined in `optionList`
+                    defaultCustomValue: 42, // Defines the default value to use in the customChoice input by default
                 },
                 {
                     name             : 'eventBubbles',
@@ -843,18 +876,13 @@ export default {
                     optionList       : [
                         {
                             optionChoice: 'tenTrillions',
-                            value       : '9999999999999.99',
-                            description : `This will soon™ be replaced by the <code>tenTrillionsNoDecimals</code> value, since <code>maximumValue</code> does not play any role anymore for defining the number of decimal places`,
+                            value       : '10000000000000',
+                            description : ``,
                             defaultValue: true,
                         },
                         {
-                            optionChoice: 'tenTrillionsNoDecimals',
-                            value       : '9999999999999',
-                            description : ``,
-                        },
-                        {
                             optionChoice: 'oneBillion',
-                            value       : '999999999.99',
+                            value       : '1000000000',
                             description : ``,
                         },
                         {
@@ -881,18 +909,13 @@ export default {
                     optionList       : [
                         {
                             optionChoice: 'tenTrillions',
-                            value       : '-9999999999999.99',
-                            description : `This will soon™ be replaced by the <code>tenTrillionsNoDecimals</code> value, since <code>maximumValue</code> does not play any role anymore for defining the number of decimal places`,
+                            value       : '-10000000000000',
+                            description : ``,
                             defaultValue: true,
                         },
                         {
-                            optionChoice: 'tenTrillionsNoDecimals',
-                            value       : '-9999999999999',
-                            description : ``,
-                        },
-                        {
                             optionChoice: 'oneBillion',
-                            value       : '-999999999.99',
+                            value       : '-1000000000',
                             description : ``,
                         },
                         {

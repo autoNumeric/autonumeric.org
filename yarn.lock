@@ -343,9 +343,13 @@ atob@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.1.tgz#ae2d5a729477f289d60dd7f96a6314a22dd6c22a"
 
-autonumeric@^4.2.13, autonumeric@^4.2.15:
+autonumeric@^4.2.13:
   version "4.2.15"
   resolved "https://registry.yarnpkg.com/autonumeric/-/autonumeric-4.2.15.tgz#bc9c7248a258575dbdf33f011c295bdd755aeb92"
+
+autonumeric@^4.2.15:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/autonumeric/-/autonumeric-4.4.0.tgz#b25a71324b6a6d9c0a065dbd3c6770c521137be0"
 
 autoprefixer@^6.3.1:
   version "6.7.7"
@@ -7011,8 +7015,8 @@ vue-hot-reload-api@^2.2.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"
 
 vue-i18n@^7.3.3:
-  version "7.8.0"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.8.0.tgz#fa49c3f90d20edab2048e9ef825774d39f1906d9"
+  version "7.8.1"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.8.1.tgz#2ce4b6efde679a1e05ddb5d907bfc1bc218803b2"
 
 vue-loader@14.2.2:
   version "14.2.2"
