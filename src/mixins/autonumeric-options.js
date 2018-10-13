@@ -766,6 +766,32 @@ export default {
                     isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
                 },
                 {
+                    name             : 'formulaMode',
+                    descriptionShort : 'Defines if the <i>formula mode</i> can be activated by the user',
+                    description      : `If set to <code>true</code>, then the user can enter the formula mode by entering the <code>'='</code> character.<br>
+He will then be allowed to enter any simple math formula using numeric characters as well as the following operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>(</code> and <code>)</code>.<br>
+The <i>formula mode</i> is exited when the user either validate their math expression using the <code>Enter</code> key, or when the element is blurred.<br>
+If the formula is invalid, the previous valid <code>rawValue</code> is set back, and the <code>autoNumeric:invalidFormula</code> event is sent.<br>
+When a valid formula is accepted, then its result is <code>set()</code>, and the <code>autoNumeric:validFormula</code> event is sent.`,
+                    initialValue     : 12345.67, // The initial value shared with the same v-model
+                    optionList       : [
+                        {
+                            optionChoice: 'enabled',
+                            value       : true,
+                            description : `Enable the formula mode`,
+                        },
+                        {
+                            optionChoice: 'disabled',
+                            value       : false,
+                            description : `Disable the formula mode`,
+                            defaultValue: true,
+                        },
+                    ],
+                    additionalInfo   : '',
+                    additionalOptions: {}, // Other options that needs to be set in conjunction
+                    isOptionChoiceOpen: false, // Defines if the user can use other values than those defined in `optionList`
+                },
+                {
                     name             : 'historySize',
                     descriptionShort : 'Set the undo/redo history table size',
                     description      : 'Each record keeps the raw value <code>rawValue</code> as well and the last known caret position / selection',
@@ -1275,7 +1301,7 @@ Note 3: The <code>paste</code> event works with the <code>decimalPlacesShownOnFo
                 {
                     name             : 'overrideMinMaxLimits',
                     descriptionShort : 'Override the minimum and maximum limits',
-                    description      : `Note: The hyphen <code>'-'</code> is translated to the custom negative sign defined in <code>negativeSignCharacter</code>`,
+                    description      : '',
                     initialValue     : 162468.02, // The initial value shared with the same v-model
                     optionList       : [
                         {
