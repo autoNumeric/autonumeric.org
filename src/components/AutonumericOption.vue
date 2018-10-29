@@ -478,13 +478,12 @@
 				}
 
 				&.defaultValue {
-					position         : relative; //XXX This is needed by the `& > *::after` rule
 					background-color : $defaultValueBgColor;
 					color            : white;
 
 					& > div:first-child,
 					& > div:last-child {
-						position : relative; //XXX This is needed by Chromium only, that considers that the parent element of an ::after is the element itself!
+						position : relative;
 
 						&::after,
 						&::after {
