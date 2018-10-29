@@ -482,18 +482,24 @@
 					background-color : $defaultValueBgColor;
 					color            : white;
 
-					& > *::after {
-						content         : "";
-						position        : absolute;
-						top             : 0;
-						bottom          : 0;
-						left            : 0;
-						right           : 0;
-						z-index         : -1;
-						background-color: $defaultValueBgColor;
-						margin-right    : -$defaultValueRadiusSize;
-						margin-left     : -$defaultValueRadiusSize;
-						border-radius   : $defaultValueRadiusSize;
+					& > div:first-child,
+					& > div:last-child {
+						position : relative; //XXX This is needed by Chromium only, that considers that the parent element of an ::after is the element itself!
+
+						&::after,
+						&::after {
+							content         : "";
+							position        : absolute;
+							top             : 0;
+							bottom          : 0;
+							left            : 0;
+							right           : 0;
+							z-index         : -1;
+							background-color: $defaultValueBgColor;
+							margin-right    : -$defaultValueRadiusSize;
+							margin-left     : -$defaultValueRadiusSize;
+							border-radius   : $defaultValueRadiusSize;
+						}
 					}
 
 					.description > div {
