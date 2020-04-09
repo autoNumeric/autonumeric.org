@@ -1308,7 +1308,6 @@ Note 3: The <code>paste</code> event works with the <code>decimalPlacesShownOnFo
                             optionChoice: 'ceiling',
                             value       : 'ceiling',
                             description : `Adheres to <code>maximumValue</code> and ignores <code>minimumValue</code> settings`,
-                            defaultValue: true,
                         },
                         {
                             optionChoice: 'floor',
@@ -1324,6 +1323,7 @@ Note 3: The <code>paste</code> event works with the <code>decimalPlacesShownOnFo
                             optionChoice: 'doNotOverride',
                             value       : null,
                             description : `The <code>minimumValue</code> and <code>maximumValue</code> limits are respected`,
+                            defaultValue: true,
                         },
                     ],
                     additionalInfo   : '',
