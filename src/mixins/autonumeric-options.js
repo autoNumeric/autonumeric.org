@@ -1307,22 +1307,27 @@ Note 3: The <code>paste</code> event works with the <code>decimalPlacesShownOnFo
                         {
                             optionChoice: 'ceiling',
                             value       : 'ceiling',
-                            description : `Adheres to <code>maximumValue</code> and ignores <code>minimumValue</code> settings`,
+                            description : `Adheres to <code>maximumValue</code> and ignores <code>minimumValue</code> settings.<br>It allows the user to enter anything between <code>-∞</code> and <code>maximumValue</code>. If <code>maximumValue</code> is less than <code>0</code>, then it will prevent the user emptying the field or typing value above <code>maximumValue</code>, making sure the value entered is always valid.`,
                         },
                         {
                             optionChoice: 'floor',
                             value       : 'floor',
-                            description : `Adheres to <code>minimumValue</code> and ignores <code>maximumValue</code> settings`,
+                            description : `Adheres to <code>minimumValue</code> and ignores <code>maximumValue</code> settings.<br>It allows the user to enter anything between <code>minimumValue</code> and <code>+∞</code>. If <code>minimumValue</code> is higher than <code>0</code>, then it will prevent the user emptying the field or typing value below <code>minimumValue</code>, making sure the value entered is always valid.`,
                         },
                         {
                             optionChoice: 'ignore',
                             value       : 'ignore',
-                            description : `Ignores both <code>minimumValue</code> & <code>maximumValue</code>`,
+                            description : `Ignores both <code>minimumValue</code> & <code>maximumValue</code>.<br>When using this option, the field will always be valid range-wise.`,
+                        },
+                        {
+                            optionChoice: 'invalid',
+                            value       : 'invalid',
+                            description : `The user can temporarily type <i>out-of-bound</i> values. In doing so, the <code>invalid</code> state is set on the field. Whenever an invalid value is typed, an <code>'autoNumeric:invalidValue'</code> event is sent. When the value is correctly set back within the limit boundaries, the invalid state is removed, and the <code>'autoNumeric:correctedValue'</code> event is sent.`,
                         },
                         {
                             optionChoice: 'doNotOverride',
                             value       : null,
-                            description : `The <code>minimumValue</code> and <code>maximumValue</code> limits are respected`,
+                            description : `The <code>minimumValue</code> and <code>maximumValue</code> limits are respected.<br>If <code>0</code> is out of the min/max range, this will prevent the user clearing the input field, making sure the value entered is always valid.`,
                             defaultValue: true,
                         },
                     ],
