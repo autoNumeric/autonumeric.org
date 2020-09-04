@@ -26,7 +26,7 @@
     "eslint-plugin-html": "^4.0.3",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-vue": "^4.3.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.13.1",
     "quasar-cli": "^0.15.14",
     "sass-loader": "^7.0.1"
   },
