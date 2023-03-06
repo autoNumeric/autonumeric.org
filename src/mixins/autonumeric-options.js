@@ -1496,7 +1496,7 @@ Note: You can see the <code>rawValue</code> by pressing the <code>Alt</code> key
                 {
                     name             : 'roundingMethod',
                     descriptionShort : 'Defines the rounding method to use',
-                    description      : `When set to <code>true</code>, then the <code>readonly</code> html property is added to the <code>&lt;input&gt;</code> element on initialization.`,
+                    description      : `Multiple rounding methods are supported by AutoNumeric.`,
                     initialValue     : 123.415, // The initial value shared with the same v-model
                     optionList       : [
                         //FIXME The rounding is not shown!
