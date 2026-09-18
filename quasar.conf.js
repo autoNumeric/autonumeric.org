@@ -1,3 +1,4 @@
+//TODO fix that configuration file (see https://github.com/quasarframework/quasar-starter-kit/blob/master/template/quasar.conf.js)
 // Configuration for your app
 const path = require('path');
 
