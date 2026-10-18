@@ -14,6 +14,9 @@ export default defineConfig({
     retries      : process.env.CI ? 1 : 0,
     reporter     : process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'list',
     use          : {
+        // Without it, an action waiting for a missing element hangs until the test times out,
+        // with no indication of what it was waiting for
+        actionTimeout: 15_000,
         baseURL : `http://localhost:${port}`,
         viewport: { width: 1440, height: 900 }, // Large screen: every menu and panel is visible
         trace   : 'retain-on-failure',

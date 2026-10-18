@@ -172,20 +172,24 @@ test.describe('Navigation bar over the hero', () => {
     });
 
     test('the theme switch looks like on the other pages, with a visible sun', async ({ page }) => {
-        const sun = page.locator('.VPNavBarAppearance .vpi-sun');
-        const moon = page.locator('.VPNavBarAppearance .vpi-moon');
-        await expect.poll(() => css(sun, 'opacity')).toBe('1');
-        await expect.poll(() => css(moon, 'opacity')).toBe('0');
-        // The sun is drawn on the white knob, so it must not be white !
-        const [r, g, b] = rgb(await css(sun, 'color'));
-        expect(r + g + b).toBeLessThan(600);
+        // Waits for the switch to be there before reading its colors, on each page
+        const sunColorOn = async path => {
+            await open(page, path);
+            const sun = page.locator('.VPNavBarAppearance .vpi-sun');
+            await expect(sun).toBeVisible();
+            await expect.poll(() => css(sun, 'opacity')).toBe('1');
 
-        const onOtherPage = await (async () => {
-            await open(page, '/examples');
-            return css(page.locator('.VPNavBarAppearance .vpi-sun'), 'color');
-        })();
-        await open(page, '/');
-        expect(await css(page.locator('.VPNavBarAppearance .vpi-sun'), 'color')).toBe(onOtherPage);
+            return css(sun, 'color');
+        };
+
+        const onOtherPage = await sunColorOn('/examples');
+        const onHomePage = await sunColorOn('/');
+        expect(onHomePage).toBe(onOtherPage);
+
+        // The sun is drawn on the white knob, so it must not be white !
+        const [r, g, b] = rgb(onHomePage);
+        expect(r + g + b).toBeLessThan(600);
+        await expect.poll(() => css(page.locator('.VPNavBarAppearance .vpi-moon'), 'opacity')).toBe('0');
     });
 
     test('the theme switch shows the moon once activated', async ({ page }) => {

@@ -11,25 +11,23 @@ async function openIfExists(page, path) {
 }
 
 test.describe('Every documentation page', () => {
-    test('loads, with a main title', async ({ page }) => {
-        for (const path of docsPages) {
+    // One test per page: each one navigates once, they run in parallel, and a failure names
+    // the page straight away (visiting the thirty pages in a single test went over its time limit)
+    for (const path of docsPages) {
+        test(`${path} loads, with a main title and no leftover MkDocs syntax`, async ({ page }) => {
             const response = await page.goto(path);
-            expect.soft(response.status(), path).toBe(200);
-            await expect.soft(page.locator('.vp-doc h1').first(), path).toBeVisible();
-        }
-    });
+            expect(response.status()).toBe(200);
+            await expect(page.locator('.vp-doc h1').first()).toBeVisible();
 
-    test('shows no leftover MkDocs syntax', async ({ page }) => { //TODO : Once tested, this can be removed
-        for (const path of docsPages) {
-            await page.goto(path);
+            //TODO : Once tested, the checks below can be removed
             const text = await page.locator('.vp-doc').innerText();
-            expect.soft(text, `${path}: admonition`).not.toMatch(/^(!!!|\?\?\?)\s+\w+/m);
-            expect.soft(text, `${path}: content tab`).not.toMatch(/^===\s+"/m);
-            expect.soft(text, `${path}: code fence shown as text`).not.toMatch(/```/);
-            expect.soft(text, `${path}: inline highlighting`).not.toContain('#!js');
-            expect.soft(text, `${path}: Material icon`).not.toMatch(/:(material|octicons|fontawesome)-[\w-]+:/);
-        }
-    });
+            expect.soft(text, 'admonition').not.toMatch(/^(!!!|\?\?\?)\s+\w+/m);
+            expect.soft(text, 'content tab').not.toMatch(/^===\s+"/m);
+            expect.soft(text, 'code fence shown as text').not.toMatch(/```/);
+            expect.soft(text, 'inline highlighting').not.toContain('#!js');
+            expect.soft(text, 'Material icon').not.toMatch(/:(material|octicons|fontawesome)-[\w-]+:/);
+        });
+    }
 });
 
 test.describe('Titles and content', () => {
