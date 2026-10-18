@@ -1,42 +1,31 @@
 {
-    "name": "autonumeric.org",
-    "version": "0.13.2",
-    "description": "The official AutoNumeric website",
-    "productName": "autonumeric.org",
-    "cordovaId": "org.autonumeric.app",
-    "author": "Alexandre Bonneau <alexandre.bonneau@linuxfr.eu>",
-    "scripts": {
-        "dev": "quasar dev",
-        "build": "quasar build && cp src/404.html dist/spa-mat/ && cp CNAME dist/spa-mat/",
-        "lint": "eslint --ext .js,.vue src",
-        "lintfix": "eslint --ext .js,.vue src --fix"
-    },
-    "dependencies": {
-        "autonumeric": "^4.8.4",
-        "axios": "^1.3.4",
-        "highlight.js": "^11.7.0",
-        "vue-autonumeric": "^1.2.6",
-        "vue-i18n": "^9.2.2"
-    },
-    "devDependencies": {
-        "@babel/eslint-parser": "^7.21.3",
-        "eslint": "^8.36.0",
-        "eslint-friendly-formatter": "^4.0.1",
-        "eslint-plugin-html": "^7.1.0",
-        "eslint-plugin-import": "^2.27.5",
-        "eslint-plugin-vue": "^9.9.0",
-        "node-sass": "^8.0.0",
-        "quasar-cli": "^0.17.26",
-        "sass-loader": "^13.2.0",
-        "strip-ansi": "=3.0.1"
-    },
-    "engines": {
-        "node": ">= 8.9.0",
-        "npm": ">= 5.6.0"
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 10"
-    ]
+  "name": "autonumeric.org",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The official AutoNumeric website",
+  "author": "Alexandre Bonneau <alexandre.bonneau@linuxfr.eu>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vitepress dev src --port 8082",
+    "build": "vitepress build src",
+    "preview": "vitepress preview src --port 8082",
+    "test": "playwright test",
+    "import-docs": "node scripts/import-docs.mjs",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "dependencies": {
+    "autonumeric": "^4.10.10"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "markdown-it-deflist": "^3.0.0",
+    "markdown-it-footnote": "^4.0.0",
+    "vitepress": "^1.6.3",
+    "vue": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
 }

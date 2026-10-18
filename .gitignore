@@ -1,14 +1,12 @@
-.quasar
+node_modules/
+src/.vitepress/dist/
+src/.vitepress/cache/
 .DS_Store
-.thumbs.db
-node_modules
-/dist
-/src-cordova/platforms
-/src-cordova/plugins
-/src-cordova/www
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+test-results/
+playwright-report/
+redirects/
+
+scripts/import-docs.mjs
 
 # Editor directories and files
 .idea

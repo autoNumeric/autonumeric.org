@@ -1,0 +1,170 @@
+{
+  "sidebar": [
+    {
+      "text": "User documentation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "AutoNumeric.js documentation",
+          "link": "/docs/"
+        },
+        {
+          "text": "Try AutoNumeric",
+          "link": "/docs/demo"
+        },
+        {
+          "text": "Getting Started",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "Installation",
+              "link": "/docs/installation"
+            },
+            {
+              "text": "How to use?",
+              "link": "/docs/how-to-use"
+            },
+            {
+              "text": "On which elements can it be used?",
+              "link": "/docs/on-which-elements-can-it-be-used"
+            }
+          ]
+        },
+        {
+          "text": "Initialization",
+          "link": "/docs/initialization"
+        },
+        {
+          "text": "Options",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "Configuration options",
+              "link": "/docs/configuration-options"
+            },
+            {
+              "text": "Predefined options",
+              "link": "/docs/predefined-options"
+            },
+            {
+              "text": "Special options",
+              "link": "/docs/special-options"
+            },
+            {
+              "text": "Updating existing options",
+              "link": "/docs/updating-options"
+            }
+          ]
+        },
+        {
+          "text": "Methods",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "Accessing the methods",
+              "link": "/docs/methods"
+            },
+            {
+              "text": "Instantiated methods",
+              "link": "/docs/instantiated-methods"
+            },
+            {
+              "text": "Static methods",
+              "link": "/docs/static-methods"
+            }
+          ]
+        },
+        {
+          "text": "Formula mode",
+          "link": "/docs/formula-mode"
+        },
+        {
+          "text": "Event lifecycle",
+          "link": "/docs/event-lifecycle"
+        },
+        {
+          "text": "Old versions",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "Deprecated documentation",
+              "link": "/docs/old/deprecated-documentation"
+            },
+            {
+              "text": "v1.9 documentation",
+              "link": "/docs/old/v1.9-documentation"
+            },
+            {
+              "text": "v2.0 documentation",
+              "link": "/docs/old/v2.0-documentation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Developer guide",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "How to contribute?",
+          "link": "/docs/developer/how-to-contribute"
+        },
+        {
+          "text": "How to upgrade to v4",
+          "link": "/docs/developer/how-to-upgrade-to-v4"
+        },
+        {
+          "text": "Dependencies",
+          "link": "/docs/developer/dependencies"
+        }
+      ]
+    },
+    {
+      "text": "Support",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Support",
+          "link": "/docs/support"
+        },
+        {
+          "text": "Related projects",
+          "link": "/docs/related-projects"
+        },
+        {
+          "text": "Older versions",
+          "link": "/docs/older-versions"
+        }
+      ]
+    },
+    {
+      "text": "Changelog",
+      "link": "/docs/changelog"
+    },
+    {
+      "text": "About",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "About",
+          "link": "/docs/about/about"
+        },
+        {
+          "text": "License",
+          "collapsed": false,
+          "items": [
+            {
+              "text": "Public license",
+              "link": "/docs/about/license"
+            },
+            {
+              "text": "Documentation",
+              "link": "/docs/about/documention-license"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
