@@ -8,7 +8,7 @@ It is built with [VitePress](https://vitepress.dev) (Vue 3). Pull requests are w
 
 ```sh
 npm install
-npm run dev      # http://localhost:8081
+npm run dev      # http://localhost:8082
 npm run build    # static website in src/.vitepress/dist
 npm run preview  # serve the built website
 npm test         # tests on the built website (run `npx playwright install chromium firefox` once)
